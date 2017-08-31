@@ -1,2 +1,119 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image:linear-gradient(-225deg, rgba(0, 78, 20, 0.6) 0%, rgba(0, 77, 20, 0.34) 50%), url('<%= asset_path("banner.jpg") %>')">
+  <div class="banner-content">
+    <h1>SoGuide</h1>
+    <p>Les meilleurs guides et chauffeurs à l’étranger !</p>
+    <input type="text" class="search-banner" ></input><a class="btn-default-banner">Cherchez un guide !</a>
+  </div>
+</div>
+
+
+<div class="container text-center">
+  <div class="row">
+    <div class="col-md-12 first-part">
+      <h3>Une sélection des guides locaux, recommandés par tous leurs clients.</h3>
+      <p>Pour tous vos treks et voyages hors des sentiers battus.</p>
+    </div>
+    <div style="margin-bottom: 4%;"><a class="btn-default">Vous cherchez un guide cliquez ici !</a></div>
+
+    <div class="col-md-12 partenaires-wrapper second-part">
+    <%= image_tag "Logo-Cap-Campus.jpg", class: "logo-partenaire" %>
+    <%= image_tag "Logo-Early-Adopters.jpg", class: "logo-partenaire" %>
+    <%= image_tag "Logo-I-tourisme.jpg", class: "logo-partenaire" %>
+    <%= image_tag "Logo-Le-Quotidien.jpg", class: "logo-partenaire" %>
+    <%= image_tag "Logo-Le-Voyageur.jpg", class: "logo-partenaire" %>
+    <%= image_tag "Logo-voyager-mag.jpg", class: "logo-partenaire" %>
+    </div>
+  </div>
+</div>
+
+<div class="padded-little"></div>
+
+<div class="container">
+  <div class="row" style="display:flex; justify-content: space-between;">
+    <div class="col-md-3 card-menu" style="background-image:url('<%= asset_path("baby-monkey.jpg") %>')">
+    <div class="bottom-desc">
+      <p>Conseils pratiques</p>
+      </div>
+    </div>
+    <div class="col-md-3 card-menu" style="background-image:url('<%= asset_path("find-a-guide.jpg") %>')">
+      <div class="bottom-desc">
+      <p>Trouver un guide</p>
+      </div>
+    </div>
+    <div class="col-md-3 card-menu" style="background-image:url('<%= asset_path("idea.jpg") %>')">
+      <div class="bottom-desc">
+      <p>L'idée & l'équipe</p>
+      </div>
+    </div>
+    <div class="col-md-3 card-menu" style="background-image:url('<%= asset_path("blog-guide.jpg") %>')">
+      <div class="bottom-desc">
+      <p>Le Blog SoGuide</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="padded-little"></div>
+
+<div class="container">
+  <div class="row text-center">
+    <div class="col-xs-12 text-center"   style="border-bottom: 1px solid rgba(128, 128, 128, 0.27);border-top: 1px solid rgba(128, 128, 128, 0.27);padding: 3%;">
+    <h3 style="color: #339966;margin-bottom: 20px;">La communauté SoGuide c'est déjà...</h3>
+    <div class="col-md-4 counter">
+      <div class="counter-up-part">
+      <div id="container"><i class="fa fa-globe" style="opacity: 0.2;color: green;font-size: 1100%;position: relative;bottom: 85px;"></i></div>
+     </div>
+
+    <span style="color: #999999;font-size: 24px;">Pays à découvrir</span>
+    </div>
+    <div class="col-md-4 counter">
+    <div class="counter-up-part">
+    <div id="container2"><i class="fa fa-handshake-o" style="opacity: 0.2;color: green;font-size: 1000%;position: relative;bottom: 85px;"></i></div>
+      </div>
+      <span style="color: #999999;font-size: 24px;">Guides indépendants</span>
+    </div>
+    <div class="col-md-4 counter">
+    <div class="counter-up-part">
+    <div id="container3"><i class="fa fa-comments-o" style="opacity: 0.2;color: green;font-size: 1000%;position: relative;bottom: 85px;"></i></div>
+      </div>
+      <span style="color: #999999;font-size: 24px;">Avis d'anciens clients</span>
+    </div>
+    </div>
+  </div>
+</div>
+
+<div class="container text-center">
+  <div class="row"  style="border-bottom: 1px solid rgba(128, 128, 128, 0.27);padding-bottom: 2%;">
+    <div class="padded-little"></div>
+    <div class="col-md-6 first-part">
+      <p>Passer par SoGuide pour vos voyages sur mesure à l’étranger vous reviendra en moyenne…</p>
+      <p style="color: #339966;">3 à 4 fois moins cher</p>
+      <p>… que par un Tour Opérateur classique !</p>
+          <div class="padded-little"></div>
+    </div>
+
+    <div class="col-xs-6 text-center">
+    <iframe class="video" width="560" height="315" src="https://www.youtube.com/embed/A23D8twVzYI" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12" style="border-bottom: 1px solid rgba(128, 128, 128, 0.27);padding-bottom: 2%;" >
+      <h3 class='text-center' style="color: #339966;">LE CONCEPT SOGUIDE</h3></br>
+      <span style="font-weight: bold; font-size: 16px;">SoGuide est une communauté participative de voyageurs réunis dans le but de constituer un annuaire de guides locaux à l’étranger – dans les pays en développement où l’accès aux guides est plus compliqué et pour des séjours longs. Ces guides sont sélectionnés pour leur fiabilité et leur compétence sur la base des recommandations de leurs anciens clients.</span></br></br>
+      <span style="font-weight: lighter; font-size: 16px;">Contrairement à d’autres plateformes, nous ne proposons aux utilisateurs que 10% des guides contactés en amont pour ne conserver que les meilleurs. Nous avons fait le choix de la qualité, chacun des guides référencés ayant au minimum 5 recommandations de ses anciens clients provenant de sources variées (commentaires de forums, mails de remerciements, livre d’or…).
+
+Le but premier de SoGuide est donc d’offrir plus de sécurité et de permettre aux internautes de rentrer en contact avec des guides locaux compétents à des prix raisonnables, en supprimant les intermédiaires pour que les deux parties engagées y trouvent leur compte. En ce sens, notre projet a une forte dimension sociale, puisqu’il vise à redistribuer plus équitablement les revenus du tourisme aux acteurs locaux.</span>
+    </div>
+  </div>
+</div>
+
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+
+  <% end %>
+<% end %>

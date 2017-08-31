@@ -1,0 +1,65 @@
+a {
+  text-decoration:none;
+}
+
+a.fa {
+  text-decoration: none;
+}
+// Paddings
+.padded {
+  padding-top: 5em;
+  padding-bottom: 5em;
+}
+.padded-little {
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+
+.btn-default {
+  color: #999999;
+  border: 1px solid #999999;
+  padding: 10px 15px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 1;
+  cursor: pointer;
+}
+.btn-default:hover {
+  opacity: 0.6;
+  text-decoration: none;
+  color: #999999;
+  cursor: pointer;
+}
+
+.padded {
+  padding: 1%;
+}
+
+.btn-default-banner {
+    color: white;
+    border: 1px solid white;
+    padding: 10px 15px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    font-weight: lighter;
+    opacity: 1;
+    cursor: pointer;
+}
+.btn-default-banner:hover {
+  opacity: 0.6;
+  text-decoration: none;
+  color: #999999;
+  cursor: pointer;
+}
+
+
+.search-banner {
+    padding: 10px 13px;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    color:black;
+    border-top: 1px solid white;
+    border: 1px white;
+}
+
+
