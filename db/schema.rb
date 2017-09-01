@@ -10,10 +10,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170831125151) do
+ActiveRecord::Schema.define(version: 20170901084254) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "countries", force: :cascade do |t|
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "name"
+    t.string   "description"
+    t.string   "photo"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "address"
+  end
+
+  create_table "guides", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "country"
+    t.string   "mobile_phone"
+    t.string   "phone"
+    t.string   "regions"
+    t.string   "guide_type"
+    t.integer  "experience"
+    t.string   "structure"
+    t.string   "structure_website"
+    t.string   "license"
+    t.string   "language"
+    t.text     "soguide_description"
+    t.text     "main_review"
+    t.string   "soguide_url"
+    t.index ["user_id"], name: "index_guides_on_user_id", using: :btree
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -32,4 +66,5 @@ ActiveRecord::Schema.define(version: 20170831125151) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "guides", "users"
 end

@@ -9,6 +9,15 @@ gem 'puma'
 gem 'rails', '5.0.2'
 gem 'redis'
 
+gem "coffee-rails"
+gem "gmaps4rails"
+
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
+end
+gem "geocoder"
+gem 'carrierwave', '~> 0.11.2'
+gem 'cloudinary'
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'

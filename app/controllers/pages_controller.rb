@@ -3,4 +3,14 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def index
+    @countries = Country.all
+
+  end
+
+
+  def add_country
+    @country = Country.new
+  end
 end
