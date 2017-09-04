@@ -7,21 +7,22 @@
 
 <div class="container">
   <div class="row">
-<h2 class="title-country">Voici la page de profil <%= @guide.user.first_name %> <%= @guide.user.last_name %> !</h2>
+<h2 class="title-country" style="border-bottom: 1px solid rgba(0, 0, 0, 0.2);"><%= @guide.user.first_name %> <%= @guide.user.last_name %> </h2>
 <%  @countries.each do |country| %>
-    <div class="col-md-6">
+    <div class="col-md-9">
 
       <h3 class="sub-title">À propos de <%= @guide.user.first_name %> <%= @guide.user.last_name %> <%=  %> </h3>
       <p class="description-country">Régions : <%= @guide.regions %></p>
       <p class="description-country">Année d'expérence : <%= @guide.experience %> annnées</p>
-      <p class="description-country">C'est un : <%= @guide.guide_type %></p>
-      <p class="description-country">Il parle : <%= @guide.language %></p>
+      <p class="description-country">Statut : <%= @guide.guide_type %></p>
+      <p class="description-country">Langues : <%= @guide.language %></p>
       <h3 class="sub-title">Vous voulez en savoir plus sur moi ? - Voici ma description</h3>
       <p class="description-country"> <%= @guide.soguide_description %></p>
-      <h3 class="sub-title">Notre selection des meilleures guides pour visiter l'<%= country.name %></h3>
+      <div style="margin-bottom: 4%;"><a class="">Pour contacter <%= @guide.user.first_name %> <%= @guide.user.last_name %> cliquez ici ! </a></div>
+      <h3 class="sub-title">Ce que pense nos voyageurs sur les voyages avec <%= @guide.user.first_name %> <%= @guide.user.last_name %></h3>
     </div>
     <% end %>
-    <div class="col-md-6">
+    <div class="col-md-3 text-center" style="border: 1px solid rgba(0, 0, 0, 0.08);padding: 2%;">
       <% avatar_url = @guide.user.photo %>
       <%= image_tag avatar_url, class: "img-full-profil"%>
     </div>
