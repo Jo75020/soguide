@@ -14,7 +14,7 @@ ActiveAdmin.register Guide do
 
       form do |f|
     f.inputs "Identity" do
-        f.input :user
+      f.input :user
       f.input :first_name
       f.input :last_name
       f.input :email
