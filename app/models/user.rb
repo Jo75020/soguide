@@ -7,7 +7,7 @@ class User < ApplicationRecord
   devise :omniauthable, omniauth_providers: [:facebook]
 
   def display_name
-  return self.id.to_s + '-' + self.first_name + '-' + self.last_name + '-' + self.email
+  return "#{self.id.to_s} -  #{self.first_name} #{self.last_name} - #{self.inscription_reason}"
   end
 
   def self.find_for_facebook_oauth(auth)
