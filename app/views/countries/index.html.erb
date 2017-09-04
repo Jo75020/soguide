@@ -2,25 +2,28 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12 text-center">
-    <h3 style="color: #339966;">Choisissez votre destination et découvrez nos guides !</h3>
-    <div class="padded-little" style="border-top: 1px solid grey"></div>
-    </div>
+<h3 style="color: #339966; margin-bottom: 20px;">Choisissez votre destination et découvrez nos guides !</h3>
     <div class="col-md-6">
-    <% @countries.each do | country | %>
+
+    <% @countries.order("name").each do | country | %>
     <div class="col-md-6 card-wrapper">
     <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
          url('<%= cl_image_path country.photo, height: 300, width: 400, crop: :fill %>')">
-      <div class="card-category">Popular</div>
-      <div class="card-description">
-        <h2><%= country.name %></h2>
+      <div class="card-category">
+      <% @guides = Guide.where(pays: country.name) %>
+      <span><%= @guides.length %> guides disponibles</span>
       </div>
+      <div class="card-description">
+
+      </div>
+      <%= link_to "", country_path(country), class:"card-link" %>
     </div>
+    <p class="index-card-title"><%= country.name %></p>
     <p class="test-css"><%= country.description %></p>
     </div>
     <% end %>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 fixed-map">
     <div id="map" style="width: 100%; height: 600px;"></div>
     </div>
   </div>

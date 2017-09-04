@@ -13,4 +13,9 @@ class PagesController < ApplicationController
   def add_country
     @country = Country.new
   end
+
+  def update_country
+    @country = Country.find(params[:id])
+  end
+
 end

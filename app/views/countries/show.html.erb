@@ -1,7 +1,46 @@
-<div class="padded-little"></div>
 
-Here's <%= @country.name %>
-<% @guides.each do |g| %>
-<%= g.first_name %>
-<%= g.last_name %>
-<% end %>
+
+    <div class="banner" style="background-image:url('<%= cl_image_path @country.photo, crop: :fill %>')">
+  <div class="banner-content">
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="title-country">Vous voulez partir en <%= @country.name %></h2>
+      <h3 class="sub-title">À propos de cette destination</h3>
+      <p class="description-country"> <%= @country.full_description %></p>
+      <h3 class="sub-title">Quand partir? - Les meilleures périodes pour visiter l'<%= @country.name %></h3>
+      <p class="description-country"> <%= @country.best_period %></p>
+      <h3 class="sub-title">Notre selection des meilleures guides pour visiter l'<%= @country.name %></h3>
+      <% @guides.each do |guide| %>
+      <div class="col-xs-12 col-sm-4">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+           url('<%= cl_image_path @country.photo, crop: :fill %>')">
+        <div class="card-category">
+        <i class="fa fa-star" style="color:yellow"></i>
+        <i class="fa fa-star" style="color:yellow"></i>
+        <i class="fa fa-star" style="color:yellow"></i>
+        <i class="fa fa-star" style="color:yellow"></i>
+        <i class="fa fa-star" style="color:yellow"></i>
+        </div>
+        <div class="card-description">
+          <h2><%= guide.first_name %>  <%= guide.last_name %></h2>
+          <p>Very cool city, the best</p>
+        </div>
+          <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+        <%= link_to "", guide_path(guide), class:"card-link" %>
+      </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+

@@ -1,4 +1,5 @@
 class CountriesController < ApplicationController
+  before_action :set_country, only: [:show, :edit, :update, :destroy]
 
   def create
     @country = Country.create(country_params)
@@ -6,9 +7,17 @@ class CountriesController < ApplicationController
     redirect_to pages_add_country_path
   end
 
+  def update
+    @country.update(country_params)
+    redirect_to country_path(@country)
+  end
+
+
+  def edit
+  end
+
   def show
-    @country = Country.find(params[:id])
-    @guides = Guide.where(country: @country.name)
+    @guides = Guide.where(pays: @country.name)
     @alert_message = "You are viewing #{@country.name}"
     @country_coordinates = { lat: @country.latitude, lng: @country.longitude }
   end
@@ -24,7 +33,11 @@ class CountriesController < ApplicationController
 
 
   def country_params
-    params.require(:country).permit(:name, :description, :photo, :photo_cache, :address)
+    params.require(:country).permit(:name, :description, :photo, :photo_cache, :address, :full_description, :best_period, :latitude, :longitude)
+  end
+
+  def set_country
+    @country = Country.find(params[:id])
   end
 
 end

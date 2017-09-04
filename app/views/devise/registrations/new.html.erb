@@ -9,9 +9,22 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-    <%= f.input :password_confirmation, required: true %>
+    <%= f.label "Email" %>
+    <%= f.input :email, required: true, autofocus: true, label: false, placeholder: "johndoe@gmail.com" %>
+    <%= f.label "Nom" %>
+    <%= f.input :last_name, required: true, autofocus: true, label: false, placeholder: "Doe" %>
+    <%= f.label "Prénom" %>
+    <%= f.input :first_name, required: true, autofocus: true, label: false, placeholder: "John" %>
+    <%= f.label "Année de naissance" %>
+    <%= f.input :year_of_birth, required: true, autofocus: true, label: false, placeholder: "1978" %>
+    <%= f.label "Pourquoi vous inscrire sur Soguide ?" %>
+    <%= f.input :inscription_reason, required: true, autofocus: true, label: false, placeholder: "Je cherche un guide" %>
+    <%= f.input :photo %>
+    <%= f.input :photo_cache, as: :hidden %>
+    <%= f.label "Mot de passe" %>
+    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) , label: false, placeholder: "" %>
+    <%= f.label "Confirmer votre mot de passe" %>
+    <%= f.input :password_confirmation, required: true, label: false%>
   </div>
 
   <div class="form-actions">
@@ -19,7 +32,7 @@
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+
 </div>
 </div>
 </div>
