@@ -8,6 +8,8 @@ ActiveAdmin.setup do |config|
   # Set the title that is displayed on the main layout
   # for each of the active admin pages.
   #
+  config.display_name_methods = [:first_name, :last_name ]
+
   config.site_title = "Soguide"
   config.authentication_method = :authenticate_admin!
   config.current_user_method = :current_user

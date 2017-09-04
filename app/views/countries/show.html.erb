@@ -30,9 +30,9 @@
         </div>
         <div class="card-description">
           <h2><%= guide.first_name %>  <%= guide.last_name %></h2>
-          <p>Very cool city, the best</p>
+          <p> <%= guide.guide_type %> </p>
         </div>
-          <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+          <img class="card-user" src="<%= cl_image_path guide.user.photo, crop: :fill %>">
         <%= link_to "", guide_path(guide), class:"card-link" %>
       </div>
       </div>

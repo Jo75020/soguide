@@ -9,6 +9,7 @@ gem 'puma'
 gem 'rails', '5.0.2'
 gem 'redis'
 
+gem 'omniauth-facebook'
 gem "coffee-rails"
 gem "gmaps4rails"
 
