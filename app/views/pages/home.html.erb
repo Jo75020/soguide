@@ -2,9 +2,10 @@
   <div class="banner-content">
     <h1>SoGuide</h1>
     <p>Les meilleurs guides et chauffeurs à l’étranger !</p>
+
             <%= form_tag countries_path, method: 'get', class: 'form-search-full' do %>
-            <%= text_field_tag :search, params[:search], class: 'search-banner' %>
-            <%= submit_tag "Trouver votre guide !", :name => nil, class: 'btn-default-banner', id: 'search-country' %>
+            <%= text_field_tag :search, params[:search], class: 'search-banner typeahead', placeholder: 'Où voulez-vous aller ?', id: 'prefetch' %>
+            <%= submit_tag "Trouver votre guide !", :name => nil, class: 'btn-default-banner transparent-back', id: 'search-country' %>
             <% end %>
   </div>
 </div>
@@ -2191,9 +2192,6 @@ bar.text.style.fontSize = '7rem';
 bar.text.style.fontWeight = 'bold';
 
 bar.animate(1.0);  // Number from 0.0 to 1.0
-
-
-
 
 
 

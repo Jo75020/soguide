@@ -13,6 +13,9 @@ gem 'omniauth-facebook'
 gem "coffee-rails"
 gem "gmaps4rails"
 
+
+gem "pundit"
+
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
 end
