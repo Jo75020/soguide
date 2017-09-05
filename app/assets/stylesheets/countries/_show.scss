@@ -63,6 +63,8 @@
 
 
 .index-card-title {
+    margin-top: 10px;
+    margin-bottom: 0px;
     font-size: 24px !important;
     line-height: 28px !important;
     letter-spacing: -0.4px !important;
@@ -102,4 +104,33 @@
   text-decoration: none;
   color: #014d14;
   opacity: 1;
+}
+
+.card-wrapper:hover {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.32);
+    border-style: dashed;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+}
+.card-guide-bottom {
+    font-weight: 300 !important;
+    color: #484848 !important;
+    margin: 0px !important;
+    word-wrap: break-word !important;
+    font-size: 13px !important;
+    line-height: 18px !important;
+    letter-spacing: 0.2px !important;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    display: inline !important;
+}
+
+
+.card-guide:hover {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.35);
+    border-style: dashed;
+    border-right: none;
+    border-left: none;
+    border-top: none;
 }

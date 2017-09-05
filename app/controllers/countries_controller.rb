@@ -21,6 +21,7 @@ class CountriesController < ApplicationController
     @guides = Guide.where(pays: @country.name)
     @alert_message = "You are viewing #{@country.name}"
     @country_coordinates = { lat: @country.latitude, lng: @country.longitude }
+
   end
 
   def index

@@ -10,7 +10,7 @@
          url('<%= cl_image_path country.photo, height: 300, width: 400, crop: :fill %>')">
       <div class="card-category">
       <% @guides = Guide.where(pays: country.name) %>
-      <span><%= @guides.length %> guides disponibles</span>
+      <span></span>
       </div>
       <div class="card-description">
 
@@ -18,7 +18,8 @@
       <%= link_to "", country_path(country), class:"card-link" %>
     </div>
     <p class="index-card-title"><%= country.name %></p>
-    <p class="test-css"><%= country.description %></p>
+    <p class="test-css"><%= country.description %></p></br>
+    <p class="card-guide-bottom"><%= @guides.length %> guides disponibles à destination </p>
     </div>
     <% end %>
     </div>
