@@ -4,6 +4,9 @@ class GuidesController < ApplicationController
   @guide = Guide.find(params[:id])
   @countries = Country.where(name: @guide.pays)
   @reviews = Review.where(guide_id: @guide.id)
+  @countries.each do |country|
+    @guides = Guide.where(pays: country.name)
+  end
   end
 
   def create

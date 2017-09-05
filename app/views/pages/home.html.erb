@@ -2,8 +2,10 @@
   <div class="banner-content">
     <h1>SoGuide</h1>
     <p>Les meilleurs guides et chauffeurs à l’étranger !</p>
-    <input type="text" class="search-banner" style="width: 43%" ></input>
-    <%= link_to "Cherchez un guide !", countries_path, class: "btn-default-banner" %>
+            <%= form_tag countries_path, method: 'get', class: 'form-search-full' do %>
+            <%= text_field_tag :search, params[:search], class: 'search-banner' %>
+            <%= submit_tag "Trouver votre guide !", :name => nil, class: 'btn-default-banner', id: 'search-country' %>
+            <% end %>
   </div>
 </div>
 

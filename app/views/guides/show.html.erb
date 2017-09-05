@@ -8,29 +8,28 @@
 <div class="container">
   <div class="row">
 <h2 class="title-country" style="border-bottom: 1px solid rgba(0, 0, 0, 0.2);"><%= @guide.user.first_name %> <%= @guide.user.last_name %> </h2>
-<%  @countries.each do |country| %>
+    <div class="col-md-3 text-center" style="border: 1px solid rgba(0, 0, 0, 0.08);padding: 2%;">
+      <% avatar_url = @guide.user.photo %>
+      <%= image_tag avatar_url, class: "img-full-profil"%>
+    </div>
     <div class="col-md-9">
-
-      <h3 class="sub-title">À propos de <%= @guide.user.first_name %> <%= @guide.user.last_name %> <%=  %> </h3>
-      <p class="description-country">Régions : <%= @guide.regions %></p>
-      <p class="description-country">Année d'expérence : <%= @guide.experience %> annnées</p>
-      <p class="description-country">Statut : <%= @guide.guide_type %></p>
-      <p class="description-country">Langues : <%= @guide.language %></p>
+      <p class="description-country"><span class="green weighted">Régions :</span> <%= @guide.regions %></p>
+      <p class="description-country"><span class="green weighted">Expérience :</span> <%= @guide.experience %> annnées</p>
+      <p class="description-country"><span class="green weighted">Statut :</span> <%= @guide.guide_type %></p>
+      <p class="description-country"><span class="green weighted">Langues :</span> <%= @guide.language %></p>
+      <p class="description-country"><span class="green weighted">License :</span> <%= @guide.license %></p>
+      <p class="description-country"><span class="green weighted">Structure :</span> <%= @guide.structure %></p>
       <h3 class="sub-title">Vous voulez en savoir plus sur moi ? - Voici ma description</h3>
       <p class="description-country"> <%= @guide.soguide_description %></p>
       <div style="margin-bottom: 4%;"><a class="">Pour contacter <%= @guide.user.first_name %> <%= @guide.user.last_name %> cliquez ici ! </a></div>
       <h3 class="sub-title">Ce que pense nos voyageurs sur les voyages avec <%= @guide.user.first_name %> <%= @guide.user.last_name %></h3>
     </div>
-    <% end %>
-    <div class="col-md-3 text-center" style="border: 1px solid rgba(0, 0, 0, 0.08);padding: 2%;">
-      <% avatar_url = @guide.user.photo %>
-      <%= image_tag avatar_url, class: "img-full-profil"%>
-    </div>
+
     <% @reviews.each do |review| %>
     <div class="col-md-12">
         <div class="message">
       <% avatar_url = review.user.photo %>
-      <%= image_tag avatar_url, class: "avatar-large"%>
+      <%= image_tag avatar_url, class: "avatar-small"%>
         <div class="message-name">
           <h3> <%= review.user.first_name %> </h3>
           <p> <%= review.created_at %> </p>
@@ -47,6 +46,30 @@
         </div>
       </div>
       <% end %>
+    </div>
+    <div class="row">
+    <div class="col-md-12">
+      <h3 class="sub-title">Autres guides en <%= @guide.pays %></h3>
+    </div>
+    <div class="col-md-6">
+
+      <% @guides.each do |guide| %>
+      <div class="col-md-6 card-wrapper">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+           url('<%= cl_image_path guide.user.photo, height: 300, width: 400, crop: :fill %>')">
+        <div class="card-category">
+        <span></span>
+        </div>
+        <div class="card-description">
+        <%= guide.guide_type %>
+        </div>
+        <%= link_to "", guide_path(guide), class:"card-link" %>
+      </div>
+      <p class="index-card-title"><%= guide.user.first_name %> <%= guide.user.last_name %></p>
+      <p class="test-css"></p>
+      </div>
+      <% end %>
+      </div>
     </div>
   </div>
 </div>

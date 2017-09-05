@@ -24,7 +24,11 @@ class CountriesController < ApplicationController
   end
 
   def index
+    if params[:search] == ""
     @countries = Country.where.not(latitude: nil, longitude: nil)
+    else
+    @countries = Country.search_name(params[:search])
+    end
     @hash = Gmaps4rails.build_markers(@countries) do |country, marker|
       marker.lat country.latitude
       marker.lng country.longitude
@@ -32,6 +36,11 @@ class CountriesController < ApplicationController
     end
   end
 
+  def search
+    @results = Country.search_name(params[:query])
+  end
+
+  private
 
   def country_params
     params.require(:country).permit(:name, :description, :photo, :photo_cache, :address, :full_description, :best_period, :latitude, :longitude)
