@@ -30,9 +30,7 @@ class CountriesController < ApplicationController
     if params[:search] == "" || params[:search].nil?
       @results = Country.where.not(latitude: nil, longitude: nil)
     end
-
-    @countries_2 = Country.where.not(latitude: nil, longitude: nil)
-    @hash = Gmaps4rails.build_markers(@countries) do |country, marker|
+    @hash = Gmaps4rails.build_markers(@results) do |country, marker|
       marker.lat country.latitude
       marker.lng country.longitude
       # marker.infowindow render_to_string(partial: "/countrys/map_box", locals: { country: country })
