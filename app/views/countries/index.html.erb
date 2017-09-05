@@ -4,8 +4,8 @@
   <div class="row">
 <h3 style="color: #339966; margin-bottom: 20px;">Choisissez votre destination et découvrez nos guides !</h3>
     <div class="col-md-6">
-
-    <% @countries.order("name").each do | country | %>
+    <%  r = @results  %>
+    <% r.order("name").each do | country | %>
     <div class="col-md-6 card-wrapper">
     <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
          url('<%= cl_image_path country.photo, height: 300, width: 400, crop: :fill %>')">

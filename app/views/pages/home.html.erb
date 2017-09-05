@@ -46,14 +46,20 @@
 
 <div class="container">
   <div class="row text-center">
+
     <div class="col-md-3 card-menu" style="background-image:url('<%= asset_path("baby-monkey.jpg") %>')">
     <div class="bottom-desc">
+    <%= link_to pages_a_savoir_path do %>
       <p>Conseils pratiques</p>
+    <% end %>
       </div>
+
     </div>
     <div class="col-md-3 card-menu" style="background-image:url('<%= asset_path("find-a-guide.jpg") %>')">
       <div class="bottom-desc">
+    <%= link_to countries_path do %>
       <p>Trouver un guide</p>
+      <% end %>
       </div>
     </div>
     <div class="col-md-3 card-menu" style="background-image:url('<%= asset_path("idea.jpg") %>')">
