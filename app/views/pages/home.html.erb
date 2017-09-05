@@ -17,7 +17,13 @@
       <h3>Une sélection des guides locaux, recommandés par tous leurs clients.</h3>
       <p>Pour tous vos treks et voyages hors des sentiers battus.</p>
     </div>
-    <div style="margin-bottom: 4%;"><a class="btn-default">Vous cherchez un guide cliquez ici !</a></div>
+
+
+    <div style="margin-bottom: 4%;">
+      <%= link_to "Vous cherchez un guide cliquez ici!", countries_path, class:"btn-default"%>
+
+    </div>
+
 
     <div class="col-md-12 partenaires-wrapper second-part">
     <%= link_to "http://www.capcampus.com/campus-live-474/en-voyage-suivez-le-guide-oui-mais-lequel-a37740.html", target: :_blank  do %>
