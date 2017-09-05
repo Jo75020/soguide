@@ -5,13 +5,19 @@
 
 <div class="container">
   <div class="row">
+
     <div class="col-md-12">
       <h2 class="title-country">Vous voulez partir en <%= @country.name %></h2>
-      <h3 class="sub-title">À propos de cette destination</h3>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item menu-up" "><a href="#">À propos</a></li>
+        <li class="breadcrumb-item menu-up" id="go-to-2"><a href="#">Quand partir ?</a></li>
+        <li class="breadcrumb-item menu-up" id="go-to-3"><a href="#">Guides</a></li>
+      </ol>
+      <h3 class="sub-title" >À propos de cette destination</h3>
       <p class="description-country"> <%= @country.full_description %></p>
-      <h3 class="sub-title">Quand partir? - Les meilleures périodes pour visiter l'<%= @country.name %></h3>
+      <h3 class="sub-title" id="div_element2" >Quand partir? - Les meilleures périodes pour visiter l'<%= @country.name %></h3>
       <p class="description-country"> <%= @country.best_period %></p>
-      <h3 class="sub-title">Notre selection des meilleures guides pour visiter l'<%= @country.name %></h3>
+      <h3 class="sub-title" id="div_element3" >Notre selection des meilleures guides pour visiter l'<%= @country.name %></h3>
     </div>
     </div>
     <div class="row">
@@ -38,9 +44,23 @@
   </div>
 </div>
 
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
 
 
 
-
-
+$(document).ready(function() {
+    $("#go-to-2").click(function() {
+        $('html, body').animate({
+            scrollTop: $("#div_element2").offset().top
+        }, 400);
+    });
+    $("#go-to-3").click(function() {
+        $('html, body').animate({
+            scrollTop: $("#div_element3").offset().top
+        }, 400);
+    });
+});
+  <% end %>
+<% end %>
 

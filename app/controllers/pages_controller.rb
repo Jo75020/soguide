@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home]
+  skip_before_action :authenticate_user!, only: [:home, :a_savoir]
 
   def home
   end
@@ -7,6 +7,9 @@ class PagesController < ApplicationController
   def index
     @countries = Country.all
 
+  end
+
+  def a_savoir
   end
 
 

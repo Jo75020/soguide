@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :countries
   resources :guides
   get 'pages/add_country'
+    get 'pages/a_savoir'
   root to: 'pages#home'
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
