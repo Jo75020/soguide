@@ -28,7 +28,7 @@
     <% @reviews.each do |review| %>
     <div class="col-md-12">
         <div class="message">
-      <% avatar_url = review.user.photo || review.user.facebook_picture_url %>
+      <% avatar_url = review.user.facebook_picture_url %>
       <%= image_tag avatar_url, class: "avatar-small"%>
         <div class="message-name">
           <h3> <%= review.user.first_name %> </h3>
