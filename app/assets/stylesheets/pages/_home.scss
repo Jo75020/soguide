@@ -27,7 +27,15 @@
 
 .logo-partenaire {
   width: 180px;
+  opacity: 0.8;
+  transition: 1s;
 }
+
+.logo-partenaire:hover {
+  opacity: 1;
+  transition: 1s;
+}
+
 
 .card-menu {
   height: 230px;
