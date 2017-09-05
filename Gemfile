@@ -12,7 +12,7 @@ gem 'pg_search'
 gem 'omniauth-facebook'
 gem "coffee-rails"
 gem "gmaps4rails"
-
+gem "rails_12factor"
 
 gem "pundit"
 

@@ -29,7 +29,7 @@
     <div class="col-md-12">
         <div class="message">
       <% avatar_url = review.user.photo || review.user.facebook_picture_url %>
-      <%= cl_image_tag avatar_url, class: "avatar-small"%>
+      <%= image_tag avatar_url, class: "avatar-small"%>
         <div class="message-name">
           <h3> <%= review.user.first_name %> </h3>
           <p> <%= review.created_at %> </p>
