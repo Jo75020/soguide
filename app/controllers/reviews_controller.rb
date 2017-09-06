@@ -11,6 +11,7 @@ class ReviewsController < ApplicationController
     @guide = Guide.find(params[:guide_id])
     @review.user = current_user
     @review.guide = Guide.find(params[:guide_id])
+    @reviews.checked = "false"
     @review.save
     redirect_to guide_path(@guide)
   end

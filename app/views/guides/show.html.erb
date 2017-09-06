@@ -13,6 +13,8 @@
 <div class="container">
   <div class="row">
 <h2 class="title-country" style="border-bottom: 1px solid rgba(0, 0, 0, 0.2);"><%= @guide.user.first_name %> <%= @guide.user.last_name %> </h2>
+<p> <%= @reviews.length %> avis sur ce guide </p>
+<p> <%= @trips.length %> trips effectués avec Soguide </p>
     <div class="col-md-3 text-center" style="padding: 2%;">
       <% avatar_url = @guide.user.photo %>
       <%= image_tag avatar_url, class: "img-full-profil"%>
@@ -41,7 +43,11 @@
       <h3 class="sub-title">Ce que pense nos voyageurs sur les voyages avec <%= @guide.user.first_name %> <%= @guide.user.last_name %></h3>
     </div>
 
+
+
     <% @reviews.each do |review| %>
+
+    <% if review.checked == "true" %>
     <div class="col-md-12">
         <div class="message">
       <% avatar_url = review.user.facebook_picture_url || review.user.photo %>
@@ -62,6 +68,7 @@
         </div>
       </div>
     </div>
+  <% end %>
   <% end %>
 
 <%= simple_form_for [@guide, @review] do |f| %>
