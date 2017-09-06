@@ -8,11 +8,11 @@
 <div class="container">
   <div class="row">
 <h2 class="title-country" style="border-bottom: 1px solid rgba(0, 0, 0, 0.2);"><%= @guide.user.first_name %> <%= @guide.user.last_name %> </h2>
-    <div class="col-md-3 text-center" style="border: 1px solid rgba(0, 0, 0, 0.08);padding: 2%;">
+    <div class="col-md-3 text-center" style="padding: 2%;">
       <% avatar_url = @guide.user.photo %>
       <%= image_tag avatar_url, class: "img-full-profil"%>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-9" style="border-left: 1px solid rgba(0, 0, 0, 0.12);">
     <div class="part-up" style="display: flex;justify-content: space-between;align-items: center;">
       <div class="first-part-guide">
       <p class="description-country"><span class="green weighted">Régions :</span> <%= @guide.regions %></p>
@@ -39,14 +39,14 @@
     <% @reviews.each do |review| %>
     <div class="col-md-12">
         <div class="message">
-      <% avatar_url = review.user.facebook_picture_url %>
+      <% avatar_url = review.user.facebook_picture_url || review.user.photo %>
       <%= image_tag avatar_url, class: "avatar-small"%>
         <div class="message-name">
           <h3> <%= review.user.first_name %> </h3>
-          <p> <%= review.created_at %> </p>
+          <p> <%= review.created_at.strftime("%m/%d/%y") %> </p>
         </div>
         <div class="message-body">
-          <p><strong>I am not sure yet</strong></p>
+          <p><strong> <%= review.user.first_name %> à visiter l'<%= @guide.pays %> avec <%= review.guide.user.first_name %> <%= review.guide.user.last_name %></strong></p>
           <p>
             <%= review.content %>
           </p>
@@ -56,8 +56,10 @@
           <p class="price">xxx</p>
         </div>
       </div>
-      <% end %>
+
     </div>
+  <% end %>
+
     <div class="row">
     <div class="col-md-12">
       <h3 class="sub-title">Autres guides en <%= @guide.pays %></h3>
