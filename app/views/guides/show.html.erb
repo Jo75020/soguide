@@ -13,15 +13,26 @@
       <%= image_tag avatar_url, class: "img-full-profil"%>
     </div>
     <div class="col-md-9">
+    <div class="part-up" style="display: flex;justify-content: space-between;align-items: center;">
+      <div class="first-part-guide">
       <p class="description-country"><span class="green weighted">Régions :</span> <%= @guide.regions %></p>
       <p class="description-country"><span class="green weighted">Expérience :</span> <%= @guide.experience %> annnées</p>
       <p class="description-country"><span class="green weighted">Statut :</span> <%= @guide.guide_type %></p>
       <p class="description-country"><span class="green weighted">Langues :</span> <%= @guide.language %></p>
       <p class="description-country"><span class="green weighted">License :</span> <%= @guide.license %></p>
       <p class="description-country"><span class="green weighted">Structure :</span> <%= @guide.structure %></p>
+      </div>
+      <div class="second-part-guide">
+            <%= link_to "Pour contacter #{@guide.user.first_name} #{@guide.user.last_name} cliquez ici ! ", check_path(@guide), class:"btn-default green"%>
+      </div>
+      </div>
+        <div class="part-down">
       <h3 class="sub-title">Vous voulez en savoir plus sur moi ? - Voici ma description</h3>
       <p class="description-country"> <%= @guide.soguide_description %></p>
-      <div style="margin-bottom: 4%;"><a class="">Pour contacter <%= @guide.user.first_name %> <%= @guide.user.last_name %> cliquez ici ! </a></div>
+      </div>
+
+
+
       <h3 class="sub-title">Ce que pense nos voyageurs sur les voyages avec <%= @guide.user.first_name %> <%= @guide.user.last_name %></h3>
     </div>
 

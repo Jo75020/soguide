@@ -13,7 +13,7 @@ gem 'omniauth-facebook'
 gem "coffee-rails"
 gem "gmaps4rails"
 gem "rails_12factor"
-
+gem "letter_opener", group: :development
 gem "pundit"
 
 source 'https://rails-assets.org' do
