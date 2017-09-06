@@ -1,6 +1,7 @@
 class GuidesController < ApplicationController
 
   def show
+  @review = Review.new
   @guide = Guide.find(params[:id])
   @countries = Country.where(name: @guide.pays)
   @reviews = Review.where(guide_id: @guide.id)

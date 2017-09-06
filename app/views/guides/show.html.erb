@@ -1,4 +1,9 @@
-<div class="padded-little"></div>
+<% @countries.each do |country| %>
+    <div class="banner" style="height:40vh;background-position:0% 500%;background-image:url('<%= asset_path("banner-road.jpg") %>')">
+    <% end %>
+  <div class="banner-content">
+  </div>
+</div>
 
 
 
@@ -23,7 +28,7 @@
       <p class="description-country"><span class="green weighted">Structure :</span> <%= @guide.structure %></p>
       </div>
       <div class="second-part-guide">
-            <%= link_to "Pour contacter #{@guide.user.first_name} #{@guide.user.last_name} cliquez ici ! ", check_path(@guide), class:"btn-default green"%>
+            <%= link_to "Contacter #{@guide.user.first_name} #{@guide.user.last_name}! ", check_path(@guide), class:"btn-default green"%>
       </div>
       </div>
         <div class="part-down">
@@ -56,9 +61,17 @@
           <p class="price">xxx</p>
         </div>
       </div>
-
     </div>
   <% end %>
+
+<%= simple_form_for [@guide, @review] do |f| %>
+<%= f.label "Pour donner son avis sur ce guide ? C'est ici !", class:"sub-title" %>
+<p>Les recommandations ne seront publiées qu'après validation par l'équipe SoGuide.</p>
+  <%= f.input :content, label: false %>
+  <%= f.submit "add a review", class: "btn-default" %>
+<% end %>
+
+
 
     <div class="row">
     <div class="col-md-12">
