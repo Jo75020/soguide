@@ -11,8 +11,11 @@ class ReviewsController < ApplicationController
     @guide = Guide.find(params[:guide_id])
     @review.user = current_user
     @review.guide = Guide.find(params[:guide_id])
-    @reviews.checked = "false"
-    @review.save
+    if @review.save
+      flash[:notice] = "Votre avis à bien été pris en compte il sera disponible dans quelques instants"
+    else
+      flash[:alert] = "Votre avis n'a pas été pris en compte car vous n'avez pas rempli de content"
+    end
     redirect_to guide_path(@guide)
   end
 

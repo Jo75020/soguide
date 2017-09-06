@@ -5,7 +5,7 @@ class GuidesController < ApplicationController
   @guide = Guide.find(params[:id])
   @trips = Trip.where(guide_id: @guide)
   @countries = Country.where(name: @guide.pays)
-  @reviews = Review.where(guide_id: @guide.id)
+  @reviews = Review.where(guide_id: @guide.id, checked: true)
   @countries.each do |country|
     @guides = Guide.where(pays: country.name)
   end
