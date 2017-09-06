@@ -3,7 +3,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   mount_uploader :photo, PhotoUploader
   devise :omniauthable, omniauth_providers: [:facebook]
-  after_create :send_welcome_email
+
   def display_name
   return "#{self.id.to_s} -  #{self.first_name} #{self.last_name} - #{self.inscription_reason}"
   end
