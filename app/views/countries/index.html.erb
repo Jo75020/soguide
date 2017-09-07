@@ -13,9 +13,9 @@
 
           <% @results.order("name").each do | country | %>
 
-            <div class="col-md-6 card-wrapper">
+            <div class="col-md-6 card-wrapper country">
               <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-         url('<%= cl_image_path country.photo, height: 300, width: 400, crop: :fill %>')">
+         url('<%= cl_image_path country.photo, crop: :fill %>')">
                 <div class="card-category">
                   <% @guides = Guide.where(pays: country.name) %>
                 </div>
@@ -59,8 +59,6 @@
           handler.getMap().setZoom(4);
         }
       });
-
-
     });
   <% end %>
 <% end %>

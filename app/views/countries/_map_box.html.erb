@@ -1,0 +1,12 @@
+<% @guides = Guide.where(pays: country.name) %>
+
+<div class='card country'>
+
+<div class="div-photo" style="background-image:url('<%= cl_image_path country.photo, crop: :fill %>')">
+
+</div>
+  <p class='iw-title'><%= @guides.length %> guides disponibles.</p>
+  <div class='iw-country'>
+  </div>
+</div>
+
