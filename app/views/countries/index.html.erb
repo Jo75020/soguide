@@ -3,53 +3,49 @@
 <div class="container">
   <div class="row">
     <div class="col-md-9" style="padding-bottom: 3%;border-left: 1px solid rgba(0, 0, 0, 0.04);">
-    <div class="menu-index">
-    <p class="menu-index-up">Choisissez votre destination et découvrez nos guides !</p>
-    <p class="menu-index-up-sub">Nous proposons actuellement une centaine de guides dans 16 pays différents!</p>
-    </div>
-<div class="padded"></div>
-<div class="padded"></div>
-<div class="padded-little"></div>
-    <% @results.order("name").each do | country | %>
-    <div class="col-md-6 card-wrapper">
-    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+      <div class="menu-index">
+        <p class="menu-index-up">Choisissez votre destination et découvrez nos guides !</p>
+        <p class="menu-index-up-sub">Nous proposons actuellement une centaine de guides dans 16 pays différents!</p>
+      </div>
+      <div class="padded"></div>
+        <div class="padded"></div>
+          <div class="padded-little"></div>
+
+          <% @results.order("name").each do | country | %>
+
+            <div class="col-md-6 card-wrapper">
+              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
          url('<%= cl_image_path country.photo, height: 300, width: 400, crop: :fill %>')">
-      <div class="card-category">
-      <% @guides = Guide.where(pays: country.name) %>
-      <span></span>
-      </div>
-      <div class="card-description">
+                <div class="card-category">
+                  <% @guides = Guide.where(pays: country.name) %>
+                </div>
+                <div class="card-description">
+                </div>
+                <%= link_to "", country_path(country), class:"card-link" %>
+              </div>
+              <p class="index-card-title"><%= country.name %></p>
+              <p class="test-css"><%= country.description %></p></br>
+                <div class="last-line" style="display: flex;justify-content: space-between;min-height: 30px;">
+                  <p class="card-guide-bottom"><%= @guides.length %> guides disponibles à destination </p>
+                  <div class="pic-last-lane" style="display: flex;justify-content: space-around;">
+                  <% @guides.limit(4).each do |guide| %>
+                      <% avatar_url = guide.user.photo %>
+                      <%= image_tag avatar_url, class: "avatar-very-small"%>
+                  <% end %>
+                </div>
+            </div>
 
       </div>
-      <%= link_to "", country_path(country), class:"card-link" %>
-    </div>
-    <p class="index-card-title"><%= country.name %></p>
-    <p class="test-css"><%= country.description %></p></br>
-    <div class="last-line" style="display: flex;justify-content: space-between;">
-    <p class="card-guide-bottom"><%= @guides.length %> guides disponibles à destination </p>
-    <% @guides.limit(4).each do |guide| %>
-    <div class="pic-last-lane" style="display: flex;justify-content: space-around;">
-      <% avatar_url = guide.user.photo %>
-        <%= image_tag avatar_url, class: "avatar-very-small"%>
-    <% end %>
-    </div>
-    </div>
-    </div>
-    <% end %>
-    </div>
-    <div class="col-md-3">
-
-<div id="fixed" style="position:fixed; top:0">
-  <div id="map_canvas" style="width:30%; height:100%">
-        <div id="map" style="width: 100%; height: 800px;position: fixed;"></div>
-  </div>
-</div>
-
-
-
-
-
-    </div>
+<% end %>
+      </div>
+      <div class="row">
+      <div class="col-md-3">
+        <div id="fixed" style="position:fixed; top:0">
+          <div id="map_canvas" style="width:30%; height:100%">
+                <div id="map" style="width: 100%; height: 800px;position: fixed;"></div>
+          </div>
+        </div>
+      </div>
   </div>
 </div>
 
