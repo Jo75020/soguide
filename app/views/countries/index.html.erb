@@ -25,7 +25,15 @@
     </div>
     <p class="index-card-title"><%= country.name %></p>
     <p class="test-css"><%= country.description %></p></br>
+    <div class="last-line" style="display: flex;justify-content: space-between;">
     <p class="card-guide-bottom"><%= @guides.length %> guides disponibles à destination </p>
+    <% @guides.limit(4).each do |guide| %>
+    <div class="pic-last-lane" style="display: flex;justify-content: space-around;">
+      <% avatar_url = guide.user.photo %>
+        <%= image_tag avatar_url, class: "avatar-very-small"%>
+    <% end %>
+    </div>
+    </div>
     </div>
     <% end %>
     </div>
