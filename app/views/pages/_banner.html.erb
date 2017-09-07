@@ -1,0 +1,32 @@
+<div class="banner" style="background-image:linear-gradient(-225deg, rgba(0, 78, 20, 0.6) 0%, rgba(0, 77, 20, 0.34) 50%), url('<%= asset_path("banner.jpg") %>')">
+  <div class="banner-content">
+    <h1>SoGuide</h1>
+    <p>Les meilleurs guides et chauffeurs à l’étranger !</p>
+
+
+            <%= form_tag countries_path, method: 'get', class: 'form-search-full' do %>
+            <%= text_field_tag :search, params[:search], class: 'search-banner typeahead location', placeholder: 'Où voulez-vous aller ?', id: 'prefetch' %>
+            <%= submit_tag "Trouver votre guide !", :name => nil, class: 'btn-default-banner transparent-back', id: 'search-country' %>
+            <% end %>
+
+
+  </div>
+</div>
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+$(document).ready(function() {
+  var flat_address = $('.location').get(0);
+
+  if (flat_address) {
+    var autocomplete = new google.maps.places.Autocomplete(flat_address, { types: ['geocode'] });
+    // google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChanged);
+    google.maps.event.addDomListener(flat_address, 'keydown', function(e) {
+      if (e.keyCode == 13) {
+        e.preventDefault(); // Do not submit the form on Enter.
+      }
+    });
+  }
+});
+
+  <% end %>
+<% end %>

@@ -1,5 +1,5 @@
 .img-full-profil {
-  width: 360px;
+  width: 320px;
 }
 
 .p-styled {
@@ -35,6 +35,10 @@
 
 .part-up {
       padding-top: 4%;
+          display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    padding-bottom: 4%;
 }
 
 .first-part-guide {

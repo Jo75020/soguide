@@ -1,14 +1,5 @@
-<div class="banner" style="background-image:linear-gradient(-225deg, rgba(0, 78, 20, 0.6) 0%, rgba(0, 77, 20, 0.34) 50%), url('<%= asset_path("banner.jpg") %>')">
-  <div class="banner-content">
-    <h1>SoGuide</h1>
-    <p>Les meilleurs guides et chauffeurs à l’étranger !</p>
 
-            <%= form_tag countries_path, method: 'get', class: 'form-search-full' do %>
-            <%= text_field_tag :search, params[:search], class: 'search-banner typeahead', placeholder: 'Où voulez-vous aller ?', id: 'prefetch' %>
-            <%= submit_tag "Trouver votre guide !", :name => nil, class: 'btn-default-banner transparent-back', id: 'search-country' %>
-            <% end %>
-  </div>
-</div>
+<%= render "banner" %>
 
 
 <div class="container text-center">
@@ -167,9 +158,18 @@
     </div>
   </div>
 </div>
+
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
+
+
+
+
+
 $(document).ready(function() {
+
+
+
 
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.ProgressBar = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 

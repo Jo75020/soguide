@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.3.3'
 
+gem 'jquery-ui-rails'
 gem 'devise'
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'
@@ -15,7 +16,7 @@ gem "gmaps4rails"
 gem "rails_12factor"
 gem "letter_opener", group: :development
 gem "pundit"
-
+gem 'gmaps-autocomplete-rails'
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
 end
@@ -31,7 +32,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
-
+gem 'rails4-autocomplete'
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
