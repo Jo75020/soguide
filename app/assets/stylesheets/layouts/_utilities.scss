@@ -1,3 +1,10 @@
+#map_canvas {
+    position: fixed;
+    right: 0;
+    top: 0;
+    margin:10px;
+}
+
 a {
   text-decoration:none;
 }
@@ -65,7 +72,7 @@ a.fa {
 }
 
 .green {
-  color:#0f5900;
+  color:#008489;
 }
 
 .weighted {
@@ -75,4 +82,12 @@ a.fa {
 .alert {
   color: white;
     background: #a94442;
+}
+
+.btn-primary {
+      border-color: #ff5a5f;
+    background-color: #ff5a5f;
+    color: #fff;
+    padding: 13px 27px;
+
 }

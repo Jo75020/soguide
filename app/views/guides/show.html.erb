@@ -1,36 +1,33 @@
-<% @countries.each do |country| %>
-    <div class="banner" style="height:40vh;background-position:0% 500%;background-image:url('<%= asset_path("banner-road.jpg") %>')">
-    <% end %>
-  <div class="banner-content">
-  </div>
-</div>
-
-
-
-
+<div class="padded-little"></div>
 
 
 <div class="container">
   <div class="row">
-<h2 class="title-country" style="border-bottom: 1px solid rgba(0, 0, 0, 0.2);"><%= @guide.user.first_name %> <%= @guide.user.last_name %> </h2>
-<p> <%= @reviews.length %> avis sur ce guide </p>
-<p> <%= @trips.length %> trips effectués avec Soguide </p>
-    <div class="col-md-3 text-center" style="padding: 2%;">
-      <% avatar_url = @guide.user.photo %>
-      <%= image_tag avatar_url, class: "img-full-profil"%>
-    </div>
-    <div class="col-md-9" style="border-left: 1px solid rgba(0, 0, 0, 0.12);">
-    <div class="part-up" style="display: flex;justify-content: space-between;align-items: center;">
+    <div class="col-md-9">
+      <div class="top-guide-page">
+      <h2 class="h-styled" > <%= @guide.guide_type %> </br> <%= @guide.user.first_name %> <%= @guide.user.last_name %> </h2>
+      <p class="p-styled"> <%= @reviews.length %> avis sur ce guide </p></br>
+      <p class="p-styled"> <%= @trips.length %> trips effectués avec Soguide </p>
+      </div>
+    <div class="part-up" style="display: flex;justify-content: space-between;">
       <div class="first-part-guide">
-      <p class="description-country"><span class="green weighted">Régions :</span> <%= @guide.regions %></p>
-      <p class="description-country"><span class="green weighted">Expérience :</span> <%= @guide.experience %> annnées</p>
-      <p class="description-country"><span class="green weighted">Statut :</span> <%= @guide.guide_type %></p>
-      <p class="description-country"><span class="green weighted">Langues :</span> <%= @guide.language %></p>
-      <p class="description-country"><span class="green weighted">License :</span> <%= @guide.license %></p>
-      <p class="description-country"><span class="green weighted">Structure :</span> <%= @guide.structure %></p>
+      <div class="top-block" style="padding-bottom: 20%;">
+      <p class="p-styled">Expérience mode de vie </br> Proposée par <span style="color: #008489;"><%= @guide.user.first_name %> <%= @guide.user.last_name %></span> </p>
+      </div>
+
+
+
+      <p class="p-styled"><i class="fa fa-globe" aria-hidden="true"></i> <span>Régions :</span> <%= @guide.regions %></p>
+      <p class="p-styled"><i class="fa fa-cogs" aria-hidden="true"></i> <span>Expérience :</span> <%= @guide.experience %> annnées</p>
+      <p class="p-styled"><i class="fa fa-comments-o" aria-hidden="true"></i> <span >Langues :</span> <%= @guide.language %></p>
+      <p class="p-styled"><i class="fa fa-id-card-o" aria-hidden="true"></i> <span >License :</span> <%= @guide.license %></p>
+      <p class="p-styled"><i class="fa fa-share" aria-hidden="true"></i> <span >Structure :</span> <%= @guide.structure %></p>
       </div>
       <div class="second-part-guide">
-            <%= link_to "Contacter #{@guide.user.first_name} #{@guide.user.last_name}! ", check_path(@guide), class:"btn-default green"%>
+
+          <% avatar_url = @guide.user.photo %>
+      <%= image_tag avatar_url, class: "avatar-small"%>
+
       </div>
       </div>
         <div class="part-down">
@@ -40,7 +37,16 @@
 
 
 
+
       <h3 class="sub-title">Ce que pense nos voyageurs sur les voyages avec <%= @guide.user.first_name %> <%= @guide.user.last_name %></h3>
+    </div>
+    <div class="col-md-3 text-center" style="margin-bottom: 13px;">
+      <% avatar_url = @guide.user.photo %>
+      <%= image_tag avatar_url, class: "img-full-profil"%>
+    </div>
+
+    <div class="col-md-3">
+          <%= link_to "Contacter #{@guide.user.first_name} #{@guide.user.last_name}! ", check_path(@guide), class:"btn-primary green"%>
     </div>
 
 
