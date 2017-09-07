@@ -6,7 +6,7 @@
 <div class="container">
   <div class="row">
 
-    <div class="col-md-12">
+    <div class="col-md-6">
       <h2 class="title-country">Vous voulez partir en <%= @country.name %></h2>
        <p> Il y a actuellement <%= @guides.length %> guides disponibles à cette destination</p>
       <ol class="breadcrumb">
@@ -18,13 +18,16 @@
       <p class="description-country"> <%= @country.full_description %></p>
       <h3 class="sub-title" id="div_element2" >Quand partir? - Les meilleures périodes pour visiter l'<%= @country.name %></h3>
       <p class="description-country"> <%= @country.best_period %></p>
-      <h3 class="sub-title" id="div_element3" >Notre selection des meilleures guides pour visiter l'<%= @country.name %></h3>
+
     </div>
-    </div>
-    <div class="row">
+      <div class="padded-little"></div>
+
+      <h3 class="sub-title" id="div_element3" ></h3>
+        <div class="padded-little" style="border-bottom: 1px solid rgba(0, 0, 0, 0.12);"></div>
+
       <% @guides.each do |guide| %>
       <div class="col-xs-12 col-sm-4 card-guide">
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+      <div class="" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
            url('<%= cl_image_path @country.photo, crop: :fill %>')">
         <div class="card-category">
 
@@ -48,7 +51,12 @@
         </div>
       </div>
     <% end %>
-  </div>
+
+
+
+    </div>
+
+
 </div>
 
 <% content_for(:after_js) do %>
