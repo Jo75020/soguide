@@ -2,12 +2,14 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-9" style="padding-bottom: 3%;border-bottom: 1px solid rgba(0, 0, 0, 0.13);">
+    <div class="col-md-9" style="padding-bottom: 3%;border-left: 1px solid rgba(0, 0, 0, 0.04);">
     <div class="menu-index">
     <p class="menu-index-up">Choisissez votre destination et découvrez nos guides !</p>
     <p class="menu-index-up-sub">Nous proposons actuellement une centaine de guides dans 16 pays différents!</p>
     </div>
 <div class="padded"></div>
+<div class="padded"></div>
+<div class="padded-little"></div>
     <% @results.order("name").each do | country | %>
     <div class="col-md-6 card-wrapper">
     <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
