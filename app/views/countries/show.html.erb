@@ -45,7 +45,7 @@
             <i class="fa fa-star" style="color:yellow"></i>
             <i class="fa fa-star" style="color:yellow"></i>
             <i class="fa fa-star" style="color:yellow"></i>
-            <% @reviews = Review.where(guide_id: guide.id) %>
+            <% @reviews = Review.where(guide_id: guide.id, checked: true) %>
             <%= @reviews.length %> commentaires
           </p>
         </div>
