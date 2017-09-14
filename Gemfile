@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 ruby '2.3.3'
 
+gem 'tinymce-rails'
+gem "roo", "~> 2.7.0"
 gem 'jquery-ui-rails'
 gem 'devise'
 gem 'figaro'
