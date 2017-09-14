@@ -271,6 +271,10 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
+    roo (2.7.1)
+      nokogiri (~> 1)
+      rubyzip (~> 1.1, < 2.0.0)
+    rubyzip (1.2.1)
     sass (3.5.1)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -305,6 +309,8 @@ GEM
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
+    tinymce-rails (4.6.6)
+      railties (>= 3.1.1)
     tzinfo (1.2.3)
       thread_safe (~> 0.1)
     uglifier (3.2.0)
@@ -357,10 +363,12 @@ DEPENDENCIES
   rails4-autocomplete
   rails_12factor
   redis
+  roo (~> 2.7.0)
   sass-rails
   simple_form
   spring
   spring-watcher-listen (~> 2.0.0)
+  tinymce-rails
   uglifier
   web-console (>= 3.3.0)
 

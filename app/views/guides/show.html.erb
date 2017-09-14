@@ -21,7 +21,7 @@
       <p class="p-styled"><i class="fa fa-share" aria-hidden="true"></i> <span >Structure :</span> <%= @guide.structure %></p>
       </div>
       <div class="second-part-guide">
-        <% avatar_url = @guide.user.photo %>
+        <% avatar_url = @guide.user.facebook_picture_url || @guide.user.photo %>
         <%= image_tag avatar_url, class: "avatar-small"%>
       </div>
     </div>
@@ -36,7 +36,7 @@
       <h3 class="sub-title">Ce que pense nos voyageurs sur les voyages avec <%= @guide.user.first_name %> <%= @guide.user.last_name %></h3>
     </div>
     <div class="col-md-3 text-center" style="margin-bottom: 13px;margin-left:-15px;">
-      <% avatar_url = @guide.user.photo %>
+      <% avatar_url = @guide.user.facebook_picture_url || @guide.user.photo %>
       <%= image_tag avatar_url, class: "img-full-profil"%>
     </div>
 
@@ -92,8 +92,12 @@
 
       <% @guides.each do |guide| %>
       <div class="col-md-6 card-wrapper">
+
+
+
+        <% avatar_url = guide.user.facebook_picture_url || guide.user.photo%>
       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-           url('<%= cl_image_path guide.user.photo, height: 300, width: 400, crop: :fill %>')">
+           url('<%= cl_image_path avatar_url, height: 300, width: 400, crop: :fill %>')">
         <div class="card-category">
         <span></span>
         </div>

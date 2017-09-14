@@ -23,6 +23,10 @@ class GuidesController < ApplicationController
   end
 
 
+
+
+
+
   private
 
 

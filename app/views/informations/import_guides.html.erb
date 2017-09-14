@@ -1,0 +1,63 @@
+<div class="padded-little"></div>
+This is an import page for adding guides
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-10 col-xs-offset-1 box-import">
+
+            <h3 class="text-center add-company">Ajoutez vos informations...</h3>
+            <div class="text-center info-import-loc">
+                <p>A cette étape, vous allez télécharger un fichier Excel dans lequel vous saisirez les données de vos locataires.</p>
+                <small>
+                    <b>
+                        <i class="fa fa-info-circle" aria-hidden="true"></i>
+                        Toutes les données envoyées sont strictement confidentielles. Elles ne seront en aucun cas diffusées,<br>
+                        vendues ou exploitées à des fins commerciales.</b>
+                </small>
+            </div>
+            <h4 class="sous-titre-qr">Etape 1 : Télécharger les fichiers Excel</h4>
+
+            <div class="text-center" style="margin-bottom: 2.5em;">
+        <%= link_to 'Modèle de l\'import en csv', informations_download_csv_url, class: 'return-to-dash' %>
+        <%= link_to 'Modèle de l\'import en format excel', informations_download_xlsx_url, class: 'return-to-dash' %>
+
+
+
+            </div>
+            <h4 class="sous-titre-qr" style="margin-top: 1em;">Etape 2 : Compléter le fichier</h4>
+            <div style="margin-left: 20px;">
+                <small>
+                    <i class="fa fa-info-circle" aria-hidden="true"></i>
+                    Le modèle des sinistralités est facultatif. Cependant, ce dernier permet de personnaliser l’outil d’évaluation en fonction de votre parc existant.<br>
+                    <i class="fa fa-info-circle" aria-hidden="true"></i>
+                    Les informations locataires non renseignées pourront l’être dans votre espace à partir de chaque « fiche locataire ».</small>
+            </div>
+            <h4 class="sous-titre-qr-import">Etape 3 : Importer mes fichiers</h4>
+            <div class="col-xs-6">
+                <%= form_tag('import_csv', multipart: true, class: 'form-input-file') do %>
+                <div class="file-upload">
+                    <%= file_field_tag :file, accept: 'text/csv' %>
+                    <i class="fa fa-arrow-up" style="font-size: 49px;"></i>
+                </div>
+                <%= submit_tag "Importer mon csv", class: 'submit-upload-file' %>
+                <% end %>
+            </div>
+            <div class="col-xs-6">
+                <%= form_tag('import_xlsx', multipart: true, class: 'form-input-file') do %>
+                <div class="file-upload">
+                    <%= file_field_tag :xlsx, accept: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' %>
+                    <i class="fa fa-arrow-up" style="font-size: 49px;"></i>
+                </div>
+                <%= submit_tag "Importer mon xlsx", class: 'submit-upload-file' %>
+                <% end %>
+            </div>
+
+      <div class="text-center" style="margin-top: 15em;">
+        <%= link_to "Aller sur le back admin", admin_dashboard_path(current_user), class: 'return-to-dash' %>
+
+
+        </div>
+    </div>
+</div>
+

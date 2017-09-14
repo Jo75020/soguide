@@ -33,7 +33,9 @@
 
         </div>
 
-          <img class="card-user" src="<%= cl_image_path guide.user.photo, crop: :fill %>">
+
+        <% avatar_url = guide.user.facebook_picture_url || guide.user.photo%>
+          <img class="card-user" src="<%= image_path avatar_url, crop: :fill %>">
         <%= link_to "", guide_path(guide), class:"card-link" %>
       </div>
         <div class="card-guide-bottom">
