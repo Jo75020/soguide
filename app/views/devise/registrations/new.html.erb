@@ -11,10 +11,10 @@
   <div class="form-inputs">
     <%= f.label "Email" %>
     <%= f.input :email, required: true, autofocus: true, label: false, placeholder: "johndoe@gmail.com" %>
-    <%= f.label "Nom" %>
-
     <%= f.label "Prénom" %>
     <%= f.input :first_name, required: true, autofocus: true, label: false, placeholder: "John" %>
+    <%= f.label "Nom" %>
+    <%= f.input :last_name, required: true, autofocus: true, label: false, placeholder: "Doe" %>
     <%= f.label "Année de naissance" %>
     <%= f.input :year_of_birth, required: true, autofocus: true, label: false, placeholder: "1978" %>
     <%= f.label "Pourquoi vous inscrire sur Soguide ?" %>
