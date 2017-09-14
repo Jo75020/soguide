@@ -1,57 +1,64 @@
-    <div class="banner" style="background-image:url('<%= cl_image_path @country.photo, crop: :fill %>')">
+<div class="padded-little"></div>
+
+    <div class="banner-country" style="background-image:url('<%= cl_image_path @country.photo, crop: :fill %>')">
   <div class="banner-content">
+  <H1 style="    font-weight: 400;
+    color: #fff;
+    display: inline-block;
+    line-height: 1.5em;
+    vertical-align: middle;
+    font-family: Lato,sans-serif;
+    font-size: 60px;
+    font-weight: 300;
+    margin: 0;"> <%= @country.name %> </H1>
   </div>
 </div>
 
 <div class="container">
   <div class="row">
 
-    <div class="col-md-6">
-      <h2 class="title-country">Vous voulez partir en <%= @country.name %></h2>
-       <p> Il y a actuellement <%= @guides.length %> guides disponibles à cette destination</p>
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item menu-up" "><a href="#">À propos</a></li>
-        <li class="breadcrumb-item menu-up" id="go-to-2"><a href="#">Quand partir ?</a></li>
-        <li class="breadcrumb-item menu-up" id="go-to-3"><a href="#">Guides</a></li>
-      </ol>
-      <h3 class="sub-title" >À propos de cette destination</h3>
+    <div class="padded"></div>
+    <div class="col-md-10">
       <p class="description-country"> <%= @country.full_description %></p>
-      <h3 class="sub-title" id="div_element2" >Quand partir? - Les meilleures périodes pour visiter l'<%= @country.name %></h3>
+      <h3 class="sub-title">Quand partir? - Les meilleures périodes pour visiter l'<%= @country.name %></h3>
       <p class="description-country"> <%= @country.best_period %></p>
 
     </div>
       <div class="padded-little"></div>
 
       <h3 class="sub-title" id="div_element3" ></h3>
-        <div class="padded-little" style="border-bottom: 1px solid rgba(0, 0, 0, 0.12);"></div>
 
-      <% @guides.each do |guide| %>
-      <div class="col-xs-12 col-sm-4 card-guide">
-      <div class="" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-           url('<%= cl_image_path @country.photo, crop: :fill %>')">
-        <div class="card-category">
+    <% @guides.each do |guide| %>
+    <div class="col-md-4 card-menu">
+    <div class="card-menu-body">
+    <%= link_to guide_path(guide) do %>
+      <% avatar_url = guide.user.facebook_picture_url || guide.user.photo%>
+      <%= image_tag avatar_url, class: "img-card-menu"%>
 
-        </div>
+      <h4 class="title-link"> <%= guide.user.first_name %> <%= guide.user.last_name %> </h4>
+      <p style="text-align: left;font-size: 12px;
+    line-height: 28px;
+    color: #777;
+    font-weight: 400;
+    overflow-x: hidden!important;
+    -webkit-font-smoothing: antialiased;"><i class="fa fa-smile-o"></i> 8.0  Superb</p>
+      <p style="text-align: left;font-size: 12px;
+    line-height: 19px;
+    color: #777;
+    font-weight: 400;
+    overflow-x: hidden!important;
+    -webkit-font-smoothing: antialiased;"> <%= guide.soguide_description %> </p>
+    <% end %>
+    </div>
+    </div>
 
 
-        <% avatar_url = guide.user.facebook_picture_url || guide.user.photo%>
-          <img class="card-user" src="<%= image_path avatar_url, crop: :fill %>">
-        <%= link_to "", guide_path(guide), class:"card-link" %>
-      </div>
-        <div class="card-guide-bottom">
-          <h3><%= guide.user.first_name %>  <%= guide.user.last_name %></h3>
-          <p> <%= guide.guide_type %> </p>
-          <p>
-            <i class="fa fa-star" style="color:yellow"></i>
-            <i class="fa fa-star" style="color:yellow"></i>
-            <i class="fa fa-star" style="color:yellow"></i>
-            <i class="fa fa-star" style="color:yellow"></i>
-            <i class="fa fa-star" style="color:yellow"></i>
-            <% @reviews = Review.where(guide_id: guide.id, checked: true) %>
-            <%= @reviews.length %> commentaires
-          </p>
-        </div>
-      </div>
+
+
+
+
+
+
     <% end %>
 
 
@@ -61,23 +68,5 @@
 
 </div>
 
-<% content_for(:after_js) do %>
-  <%= javascript_tag do %>
 
-
-
-$(document).ready(function() {
-    $("#go-to-2").click(function() {
-        $('html, body').animate({
-            scrollTop: $("#div_element2").offset().top
-        }, 400);
-    });
-    $("#go-to-3").click(function() {
-        $('html, body').animate({
-            scrollTop: $("#div_element3").offset().top
-        }, 400);
-    });
-});
-  <% end %>
-<% end %>
 
