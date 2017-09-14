@@ -1,3 +1,11 @@
+h3 {
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 400;
+    color: #303030;
+    line-height: 1.3em;
+}
+
 #map_canvas {
     position: fixed;
     right: 0;
@@ -46,28 +54,25 @@ a.fa {
     color: white;
     border: 1px solid white;
     padding: 10px 7px;
-    border-top-right-radius: 50px;
-    border-bottom-right-radius: 50px;
     font-weight: lighter;
     opacity: 1;
     cursor: pointer;
+    font-family: Raleway;
 }
 .btn-default-banner:hover {
-  opacity: 0.6;
   text-decoration: none;
-  color: #999999;
+  color: black;
+  background-color: white;
   cursor: pointer;
+  font-family: Raleway;
 }
 
 
 .search-banner {
     padding: 11px 13px;
-    border-top-left-radius: 50px;
-    border-bottom-left-radius: 50px;
     color: black;
     border: 1px solid white;
     border: 1px white;
-    width: 43%;
     margin-right: -5px;
 }
 

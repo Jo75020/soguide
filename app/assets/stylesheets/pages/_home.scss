@@ -20,9 +20,7 @@
 }
 
 .second-part {
-  background: white;
-  border-top: 1px solid rgba(128, 128, 128, 0.27);
-  border-bottom: 1px solid rgba(128, 128, 128, 0.27);
+
 }
 
 .logo-partenaire {
@@ -39,7 +37,6 @@
 
 .card-menu {
   height: 230px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   background-position: center;
   color: white;
@@ -115,4 +112,23 @@
 .bottom-desc a {
   text-decoration: none;
   color: white;
+}
+
+.img-card-menu {
+  width:100%;
+  height: 100%;
+}
+
+.card-menu p {
+      font-size: 15px;
+    line-height: 28px;
+    color: #777;
+    font-weight: 400;
+    overflow-x: hidden!important;
+    -webkit-font-smoothing: antialiased;
+    text-decoration: none;
+}
+
+.card-menu a {
+  text-decoration: none;
 }

@@ -8,6 +8,7 @@ class PagesController < ApplicationController
     if params[:search] == "" || params[:search].nil?
       @results = Country.where.not(latitude: nil, longitude: nil)
     end
+    @reviews = Review.all
   end
 
   def index
