@@ -5,8 +5,10 @@
 
 
             <%= form_tag countries_path, method: 'get', class: 'form-search-full' do %>
-            <%= text_field_tag :search, params[:search], class: 'search-banner typeahead location', placeholder: 'Où voulez-vous aller ?', id: 'prefetch' %>
-            <%= submit_tag "Trouver votre guide !", :name => nil, class: 'btn-default-banner transparent-back', id: 'search-country' %>
+            <i class="fa fa-globe" style="font-size: 30px;position: relative;top: 5px;border: 1px solid white;padding: 8px 7px 7px 7px;margin-right: -5px;"></i>
+            <%= text_field_tag :search, params[:search], class: 'search-banner typeahead location', placeholder: 'Argentine', id: 'prefetch' %>
+            <%= submit_tag "Trouver votre guide !", :name => nil, class: 'btn-default-banner', id: 'search-country' %>
+
             <% end %>
 
 

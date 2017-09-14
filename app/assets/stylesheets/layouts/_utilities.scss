@@ -58,13 +58,16 @@ a.fa {
     opacity: 1;
     cursor: pointer;
     font-family: Raleway;
+    background: #9cba5f;
+    transition: 1.5s;
+
 }
 .btn-default-banner:hover {
   text-decoration: none;
-  color: black;
-  background-color: white;
+  background-color: #ef4b5e!important;
   cursor: pointer;
   font-family: Raleway;
+  transition: 1s;
 }
 
 
