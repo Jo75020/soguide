@@ -3,21 +3,19 @@ ActiveAdmin.register Guide do
 
   index do
     selectable_column
-    column :first_name
-    column :last_name
-    column :email
+    column("Prénom"){|u| u.user.first_name }
+    column("Nom"){|u| u.user.last_name }
+    column("Email"){|u| u.user.email }
+    column("Avis Client"){|u| u.reviews.length }
     column :mobile_phone
     column :pays
-    column :created_at
+    column("Date de création"){|u| u.created_at }
     actions
   end
 
       form do |f|
     f.inputs "Identity" do
       f.input :user
-      f.input :first_name
-      f.input :last_name
-      f.input :email
       f.input :mobile_phone
       f.input :phone
       f.input :regions
