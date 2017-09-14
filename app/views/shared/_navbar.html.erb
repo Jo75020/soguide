@@ -7,11 +7,16 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
+      <%= link_to "Accueil", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Destinations", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Conseils", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "A propos", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Blog", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Contact", "#", class: "navbar-wagon-item navbar-wagon-link" %>
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
 
-      <%= link_to "Trips", "#", class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
       <span class=navbar-wagon-item navbar-wagon-link"> <%= current_user.first_name %> <%= current_user.last_name %></span>
       <!-- Avatar with dropdown menu -->

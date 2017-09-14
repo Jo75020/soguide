@@ -1,70 +1,38 @@
 <div class="padded-little"></div>
-
+<div class="padded-little"></div>
 <div class="container">
-  <div class="row">
-    <div class="col-md-9 col-xs-12" style="padding-bottom: 3%;
-    border-left: 1px solid rgba(0, 0, 0, 0.04);
-    overflow: scroll;
-    height: calc(100vh - 70px);
-    width: 76.4%;
-    box-shadow: 3px 0px 0px 0px rgba(0,0,0,0.15);
-    z-index: 99;">
-      <div class="menu-index">
-        <p class="menu-index-up">Choisissez votre destination et découvrez nos guides !</p>
-        <p class="menu-index-up-sub">Nous proposons actuellement une centaine de guides dans 16 pays différents!</p>
-      </div>
-      <div class="padded"></div>
-        <div class="padded"></div>
+  <div class="row" style="text-align: center;">
+    <div class="col-md-12 col-xs-12">
+        <h3 class="title-index">Choisissez votre destination et découvrez nos guides !</h3>
+        <p class="sub-title-index">Nous vous proposons de choisir un de nos 100 guides parmi 16 destinations. Sélectionnez un pays pour avoir des informations essentielles comme connaître la meilleure période pour le visiter.</p>
           <div class="padded-little"></div>
 
           <% @results.order("name").each do | country | %>
 
-            <div class="col-md-6 card-wrapper country">
+            <div class="col-md-3 col-xs-12 card-wrapper country">
               <div class="card" style="background-image:
          url('<%= cl_image_path country.photo, crop: :fill %>')">
                 <div class="card-category">
                   <% @guides = Guide.where(pays: country.name) %>
+                  <p> <%= country.name %> </p>
                 </div>
                 <div class="card-description">
                 </div>
                 <%= link_to "", country_path(country), class:"card-link" %>
               </div>
-              <p class="index-card-title"><%= country.name %></p>
-              <p class="test-css"><%= country.description %></p></br>
-                <div class="last-line" style="display: flex;justify-content: space-between;min-height: 30px;">
-                  <p class="card-guide-bottom"><%= @guides.length %> guides disponibles à destination </p>
-            </div>
 
       </div>
 <% end %>
       </div>
-      <div class="row">
-      <div class="col-md-3 col-xs-12" style="z-index: 2;">
-        <div id="fixed" style="position:fixed; top:0">
-          <div id="map_canvas" style="width:28%; height:100%">
-                <div id="map" style="width: 100%; height: 800px;position: fixed;"></div>
-          </div>
-        </div>
-      </div>
-  </div>
 </div>
 
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
-    $(document).ready(function() {
-      var handler = Gmaps.build('Google');
-      var mapCanvas = document.getElementById("map");
-      handler.buildMap({ provider: { scrollwheel: false }, internal: { id: 'map' } }, function() {
-        markers = handler.addMarkers(<%= raw @hash.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
+      $(document).ready(function() {
+      $('navbar-wagon-link').css({"color":"#303030"});
+      $('navbar-wagon-link').css({"color":"#303030"});
 
-        if (markers.length == 0) {
-          handler.getMap().setZoom(2);
-        } else if (markers.length == 1) {
-          handler.getMap().setZoom(4);
-        }
+
       });
-    });
   <% end %>
 <% end %>

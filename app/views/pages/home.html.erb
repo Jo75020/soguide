@@ -38,7 +38,7 @@
     <%= link_to pages_a_savoir_path do %>
       <%= image_tag asset_path("rome-image-gallery-7-300x200.jpg"), class: "img-card-menu"%>
 
-      <h3>Préparer son voyage</h3>
+      <h3 class="title-link">Préparer son voyage</h3>
       <p>L’équipe SoGuide a répertorié pour vous 7 questions à se poser pour préparer au mieux son voyage avec un guide.</p>
     <% end %>
     </div>
@@ -49,7 +49,7 @@
     <%= link_to pages_a_savoir_path do %>
       <%= image_tag asset_path("machu-picchu-image-gallery-4-300x200.jpg"), class: "img-card-menu"%>
 
-      <h3>Le Concept</h3>
+      <h3 class="title-link">Le Concept</h3>
       <p>Découvrez comment d’un besoin puis d’un constat nous sommes arrivés à l’idée de So Guide.</p>
     <% end %>
     </div>
@@ -60,7 +60,7 @@
     <%= link_to pages_a_savoir_path do %>
       <%= image_tag asset_path("http://www.so-guide.com/dev/wp-content/uploads/2016/04/spain-image-gallery-11-300x200.jpg"), class: "img-card-menu"%>
 
-      <h3>La Communauté</h3>
+      <h3 class="title-link">La Communauté</h3>
       <p>Faites vivre la communauté SoGuide en partageant votre expérience sur les réseaux sociaux</p>
     <% end %>
     </div>
@@ -73,10 +73,45 @@
 
 <%= render "bot-banner" %>
 
+<div class="padded-little"></div>
 <div class="container">
-  <div class="row">
+  <div class="row text-center">
+      <h3 style="font-weight: 300;">Les Derniers Articles</h3>
 
+    <div class="col-md-4 card-menu">
+    <div class="card-menu-body">
+    <%= link_to pages_a_savoir_path do %>
+      <%= image_tag asset_path("machu-picchu-image-gallery-12.jpg"), class: "img-card-menu"%>
 
+      <h3 class="title-link">Trekking Machu Picchu</h3>
+      <p>Lorem ipsum dolor sit amet mattis. Class ante erat. Dapibus ipsum turpis libero sagittis suspendisse</p>
+    <% end %>
+    </div>
+    </div>
+
+    <div class="col-md-4 card-menu">
+    <div class="card-menu-body">
+    <%= link_to pages_a_savoir_path do %>
+      <%= image_tag asset_path("spain-image-gallery-6-300x200.jpg"), class: "img-card-menu"%>
+
+      <h3 class="title-link">A Week in Bangkok</h3>
+      <p>Lorem ipsum dolor sit amet mattis. Class ante erat. Dapibus ipsum turpis libero sagittis suspendisse</p>
+    <% end %>
+    </div>
+    </div>
+
+    <div class="col-md-4 card-menu">
+    <div class="card-menu-body">
+    <%= link_to pages_a_savoir_path do %>
+      <%= image_tag asset_path("spain-image-gallery-3-300x200.jpg"), class: "img-card-menu"%>
+
+      <h3 class="title-link">Top 10 Destination</h3>
+      <p>Lorem ipsum dolor sit amet mattis. Class ante erat. Dapibus ipsum turpis libero sagittis suspen diss</p>
+    <% end %>
+    </div>
+    </div>
   </div>
+
+<div class="padded-little"></div>
 </div>
 
