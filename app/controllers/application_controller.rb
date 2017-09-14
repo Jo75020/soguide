@@ -9,5 +9,7 @@ class ApplicationController < ActionController::Base
     # For additional in app/views/devise/registrations/edit.html.erb
     # devise_parameter_sanitizer.permit(:account_update, keys: [:username])
   end
-
+    def authorize_admin
+        redirect_to root_path, status: 401 unless current_user.admin
+    end
 end

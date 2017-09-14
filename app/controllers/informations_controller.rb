@@ -2,6 +2,7 @@ require 'csv'
 require 'roo'
 
 class InformationsController < ApplicationController
+before_filter :authorize_admin
 
   def download_csv
       csv_path = File.join(Rails.root, 'public')
