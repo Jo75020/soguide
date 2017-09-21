@@ -2,6 +2,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   mount_uploader :photo, PhotoUploader
+  mount_uploader :photos_licenses, PhotosLicensesUploader
   devise :omniauthable, omniauth_providers: [:facebook]
 
   def display_name

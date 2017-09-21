@@ -12,7 +12,9 @@ Rails.application.routes.draw do
       resources :countries, only: [ :index ]
     end
   end
-
+  resources :conversations do
+    resources :messages
+  end
   get 'check', to: 'guides#check_in'
     resources :guides do
     resources :reviews, only: [ :index, :new, :create ]

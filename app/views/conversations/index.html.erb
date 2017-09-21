@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+    <h1 class="text-center" style="font-size:20px; color: #364A7E">My messages</h1>
+    <hr>
+      <div class="conversations-list">
+          <% @conversations.each do |conversation| %>
+            <div class="">
+              <div class="item-avatar">
+                <% if conversation.recipient.facebook_picture_url%>
+                  <div class="item-avatar" style="background-image:linear-gradient(-225deg, rgba(30,30,30,0.15) 30%, rgba(46,46,46,0.5) 80%), url('<%= cl_image_path conversation.recipient.facebook_picture_url%>')">
+                  </div>
+                <% else %>
+                  <div class="item-avatar" style="background-image:linear-gradient(-225deg, rgba(30,30,30,0.15) 30%, rgba(46,46,46,0.5) 80%), url('https://placehold.it/100x100')">
+                  </div>
+                <% end %>
+              </div>
+
+              <%= link_to(conversation_messages_path(conversation)) do %>
+              <div class="last-message-conversation">
+                <p>
+                  <%= conversation.messages.last.body[0..30].gsub(/\s\w+$/,'...') if conversation.messages.last %></p>
+
+                <p style="font-size: 12px">
+                  <%= conversation.messages.last.created_at.strftime("Send on %m/%d")  if conversation.messages.last %>
+                </p>
+              </div>
+            <% end %>
+          <div class="dots"></div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
