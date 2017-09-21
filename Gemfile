@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.3.3'
 
-
+gem 'postmark-rails'
 gem 'mechanize'
 gem 'awesome_print'
 gem "pundit"
