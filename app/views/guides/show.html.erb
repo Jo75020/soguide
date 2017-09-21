@@ -41,7 +41,7 @@
     </div>
 
     <div class="col-md-3" style="margin-top: 10px;">
-          <%= link_to "Contacter #{@guide.user.first_name} #{@guide.user.last_name}! ", check_path(@guide), class:"btn-primary green"%>
+          <%= link_to "Contacter #{@guide.user.first_name} #{@guide.user.last_name}! ", check_path(@guide, @user), class:"btn-primary green"%>
     </div>
 
 </div>

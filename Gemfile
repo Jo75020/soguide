@@ -1,6 +1,12 @@
 source 'https://rubygems.org'
 ruby '2.3.3'
 
+gem 'unread'
+gem 'mechanize'
+gem 'awesome_print'
+gem "pundit"
+gem 'acts_as_votable'
+gem 'unread'
 gem 'tinymce-rails'
 gem "roo", "~> 2.7.0"
 gem 'jquery-ui-rails'

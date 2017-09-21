@@ -1,6 +1,7 @@
 class GuidesController < ApplicationController
 
   def show
+  @user = current_user
   @review = Review.new
   @guide = Guide.find(params[:id])
   @trips = Trip.where(guide_id: @guide)
@@ -19,22 +20,19 @@ class GuidesController < ApplicationController
 
   def check_in
       @guide = Guide.find(params[:format])
-      GuideMailer.guide_check_in(@guide).deliver_now
+      @user = current_user
+      GuideMailer.guide_check_in(@guide, @user).deliver_now
   end
-
-
-
-
 
 
   private
 
 
   def user_params
-    params.require(:guide).permit(:first_name, :last_name, :email, :mobile_phone, :phone, :regions, :guide_type, :experience, :structure, :structure_website, :license, :language, :soguide_description, :main_review, :soguide_url, :pays)
+    params.require(:guide).permit(:first_name, :last_name, :email, :mobile_phone, :phone, :regions, :guide_type, :experience, :structure, :structure_website, :license, :language, :soguide_description, :main_review, :soguide_url, :pays, :secondary_email, :pays_2, :facebook_profil_url, :facebook_profil_page, :gender)
   end
 
   def guide_params
-    params.require(:guide).permit(:first_name, :last_name, :email, :mobile_phone, :phone, :regions, :guide_type, :experience, :structure, :structure_website, :license, :language, :soguide_description, :main_review, :soguide_url, :pays)
+    params.require(:guide).permit(:first_name, :last_name, :email, :mobile_phone, :phone, :regions, :guide_type, :experience, :structure, :structure_website, :license, :language, :soguide_description, :main_review, :soguide_url, :pays, :secondary_email, :pays_2, :facebook_profil_url, :facebook_profil_page, :gender)
   end
 end

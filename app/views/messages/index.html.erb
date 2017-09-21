@@ -1,0 +1,70 @@
+
+<div class="padded-little"></div>
+<% if @over_ten %>
+   <%= link_to 'Show Previous', '?m=all' %>
+<% end %>
+
+
+<div class="container" style="padding-bottom: 20px;">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+      <div class="top-conversation">
+        <div class="user-infos-conversation">
+          <div class="user-box">
+            <% if @conversation.sender == current_user %>
+              <% if @conversation.sender.facebook_picture_url %>
+                <%= image_tag(@conversation.sender.facebook_picture_url) %>
+              <% else %>
+                <%= cl_image_tag(@conversation.sender.photo) %>
+              <% end %>
+              <h3 class="no-margin"><%= @conversation.sender.first_name %></h3>
+            <% else %>
+              <% if @conversation.sender.facebook_picture_url %>
+                <%= image_tag(@conversation.sender.facebook_picture_url) %>
+              <% else %>
+                <%= cl_image_tag(@conversation.sender.photo) %>
+              <% end %>
+              <h3 class="no-margin"><%= @conversation.sender.first_name %></h3>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container conversation-container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+      <div class="flexbox-conversation">
+        <% @conversation.messages.each do |message| %>
+          <% if message.id %>
+            <% if message.user == current_user %>
+              <div class="flexbox-messages-current">
+                <p class="message-current-user "><%= message.body %></p>
+              </div>
+            <% else  %>
+              <div class="flexbox-messages-other">
+                <p class="message-other-user"><%= message.body %></p>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+      <%= simple_form_for [@conversation, @message], html: { class: 'conversation-form' } do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :body, label: false, placeholder: "Write your message here" %>
+        <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
+        <%= f.button :submit, value:"Send" , class: "btn btn-primary center-block" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+

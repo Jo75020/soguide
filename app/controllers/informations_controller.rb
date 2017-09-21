@@ -35,7 +35,7 @@ before_filter :authorize_admin
             CSV.foreach(filepath, csv_options) do |row|
                 user = User.new(email: row[0], password: row[1], first_name: row[2], last_name: row[3], year_of_birth: row[4], postal: row[5], inscription_reason: row[6], facebook_picture_url: row[7])
                 user.save!
-                guide = Guide.new(mobile_phone: row[8], phone: row[9], regions: row[10], guide_type: row[11], experience: row[12], structure: row[13], structure_website: row[14], license: row[15], language: row[16], soguide_description: row[17], main_review: row[18], soguide_url: row[19], pays: row[20], user_id: user.id )
+                guide = Guide.new(mobile_phone: row[8], phone: row[9], regions: row[10], guide_type: row[11], experience: row[12], structure: row[13], structure_website: row[14], license: row[15], language: row[16], soguide_description: row[17], main_review: row[18], soguide_url: row[19], pays: row[20], secondary_email: row[21], :pays_2: row[22], facebook_profil_url: row[23], facebook_profil_page: row[24], gender: row[25], user_id: user.id )
                 guide.save!
             end
             redirect_to  informations_import_guides_path, notice: 'Votre fichier à bien été envoyer'
@@ -60,7 +60,7 @@ before_filter :authorize_admin
         CSV.parse(csv, csv_options) do |row|
                user = User.new(email: row[0], password: row[1], first_name: row[2], last_name: row[3], year_of_birth: row[4], postal: row[5], inscription_reason: row[6], facebook_picture_url: row[7])
                 user.save!
-                guide = Guide.new(mobile_phone: row[8], phone: row[9], regions: row[10], guide_type: row[11], experience: row[12], structure: row[13], structure_website: row[14], license: row[15], language: row[16], soguide_description: row[17], main_review: row[18], soguide_url: row[19], pays: row[20], user_id: user.id )
+                guide = Guide.new(mobile_phone: row[8], phone: row[9], regions: row[10], guide_type: row[11], experience: row[12], structure: row[13], structure_website: row[14], license: row[15], language: row[16], soguide_description: row[17], main_review: row[18], soguide_url: row[19], pays: row[20], secondary_email: row[21], :pays_2: row[22], facebook_profil_url: row[23], facebook_profil_page: row[24], gender: row[25], user_id: user.id )
                 guide.save!
             end
             redirect_to  informations_import_guides_path, notice: 'Votre fichier à bien été envoyer'
