@@ -19,4 +19,13 @@ class ApplicationController < ActionController::Base
       redirect_to root_path, status: 401 unless current_user.admin
   end
 
+
+
+  def get_message_unread
+
+    @unread_messages = Message.unread_by(current_user)
+
+  end
+
+
 end

@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :messages
   end
   get 'check', to: 'guides#check_in'
+  get 'mark_as_read', to: 'conversations#mark_as_read_own'
     resources :guides do
     resources :reviews, only: [ :index, :new, :create ]
   end
@@ -27,6 +28,8 @@ Rails.application.routes.draw do
   get "/informations/import_guides" => "informations#import_guides"
   post "informations/import_csv" => "informations#import_csv"
   post "informations/import_xlsx" => "informations#import_xlsx"
+
+
 
 
 

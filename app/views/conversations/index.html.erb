@@ -1,10 +1,12 @@
+<div class="padded-little"> </div>
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
     <h1 class="text-center" style="font-size:20px; color: #364A7E">My messages</h1>
     <hr>
       <div class="conversations-list">
-          <% @conversations.each do |conversation| %>
+          <% @conversations.each do |conversations| %>
+          <% conversations.each do |conversation| %>
             <div class="">
               <div class="item-avatar">
                 <% if conversation.recipient.facebook_picture_url%>
@@ -17,14 +19,17 @@
               </div>
 
               <%= link_to(conversation_messages_path(conversation)) do %>
+
               <div class="last-message-conversation">
-                <p>
-                  <%= conversation.messages.last.body[0..30].gsub(/\s\w+$/,'...') if conversation.messages.last %></p>
+                <p class="text-message-preview">
+                  <%= link_to "#{conversation.messages.last.body[0..30].gsub(/\s\w+$/,'...') if conversation.messages.last}", mark_as_read_path(conversation)%>
+                  </p>
 
                 <p style="font-size: 12px">
                   <%= conversation.messages.last.created_at.strftime("Send on %m/%d")  if conversation.messages.last %>
                 </p>
               </div>
+              <% end %>
             <% end %>
           <div class="dots"></div>
           </div>
@@ -33,3 +38,4 @@
     </div>
   </div>
 </div>
+<div class="padded-little"></div>

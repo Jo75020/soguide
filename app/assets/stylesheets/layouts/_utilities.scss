@@ -102,3 +102,24 @@ a.fa {
 }
 
 
+.dot-message {
+      border: solid 1px #9cb95f;
+    background: #9cb95f;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    right: 15px;
+}
+
+.number-message {
+  color: white;
+    position: relative;
+    top: -3px;
+    left: 4px;
+}
+
+.text-message-preview a {
+  text-decoration: none;
+  color: black;
+}
