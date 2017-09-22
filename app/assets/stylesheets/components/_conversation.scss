@@ -85,6 +85,7 @@
 }
 
 .unique-conversation {
+  cursor: pointer;
   display:flex;
   margin-top: 10px;
   background-color:white;
@@ -100,11 +101,26 @@
 
 }
 
+
+.unique-conversation:hover {
+    position: relative;
+    bottom: 3px;
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.unique-conversation-unread:hover {
+    position: relative;
+    bottom: 3px;
+}
+
+
+
 .flex {
   display: flex;
 }
 
 .unique-conversation-unread{
+  cursor: pointer;
   display:flex;
   margin-top: 10px;
   background-color:white;
@@ -170,6 +186,7 @@
 .conversations-list{
   padding: 20px;
   padding-top: 0px;
+  border-right: 1Px solid #eeeeee;
 }
 
 .item-avatar img{
