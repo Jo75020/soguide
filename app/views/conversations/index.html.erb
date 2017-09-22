@@ -48,6 +48,15 @@
 
                 <% end %>
               </div>
+              <div class="named-left" style="padding: 15px;width: 15%;">
+              <% if current_user.id == conversation.recipient_id %>
+              <p class="full-name-messagerie"><%= conversation.sender.first_name.capitalize  %> <%= conversation.sender.last_name.capitalize  %>
+              </p>
+              <% else %>
+              <p class="full-name-messagerie"><%= conversation.recipient.first_name.capitalize  %> <%= conversation.recipient.last_name.capitalize  %></p>
+              <% end %>
+              </div>
+
 
               <%= link_to(conversation_messages_path(conversation)) do %>
 

@@ -86,9 +86,11 @@
 
 .unique-conversation {
   cursor: pointer;
+  border-left: transparent 6px solid;
+
   display:flex;
-  margin-top: 10px;
   background-color:white;
+  border-top: none;
   align-items: center;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   height: 80px;
@@ -103,14 +105,12 @@
 
 
 .unique-conversation:hover {
-    position: relative;
-    bottom: 3px;
+    border-left: #03A9F4 6px solid;
     background: rgba(0, 0, 0, 0.02);
 }
 
 .unique-conversation-unread:hover {
-    position: relative;
-    bottom: 3px;
+    border-left: #03A9F4 6px solid;
 }
 
 
@@ -120,9 +120,11 @@
 }
 
 .unique-conversation-unread{
+  border-left: transparent 6px solid;
+
+  border-top: none;
   cursor: pointer;
   display:flex;
-  margin-top: 10px;
   background-color:white;
   align-items: center;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
@@ -222,4 +224,9 @@
 
 textarea {
   resize: none;
+}
+
+.full-name-messagerie {
+  font-size: 14px;
+    text-align: center;
 }
