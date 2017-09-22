@@ -34,6 +34,11 @@
           <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
+              <%= link_to conversations_path do %>
+                <i class="fa fa-comment"></i>  <%= t(".profile", default: "Messagerie") %>
+              <% end %>
+            </li>
+            <li>
               <%= link_to countries_path do %>
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Trouver un guide") %>
               <% end %>
@@ -62,6 +67,11 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+        <li>
+          <%= link_to conversations_path do %>
+            <i class="fa fa-comment"></i>  <%= t(".profile", default: "Messagerie") %>
+          <% end %>
+        </li>
         <li>
           <%= link_to countries_path do %>
             <i class="fa fa-user"></i> <%= t(".profile", default: "Trouver un guide") %>
