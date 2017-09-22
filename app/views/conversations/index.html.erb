@@ -1,20 +1,51 @@
 <div class="padded-little"> </div>
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
-    <h1 class="text-center" style="font-size:20px; color: #364A7E">My messages</h1>
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-10 col-md-offset-1">
+      <div class="panel-heading" style="    color: white;
+    background: #024156;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;">
+    <div class="message-title">
+
+    <h3 style="font-size:20px; color: white">Vous avez <%= Message.unread_by(current_user).length %> messages non lus.</h3>
+    </div>
+    <div class="right-message-header">
+      <% result = @sender_conversations.length + @recipient_conversations.length %>
+      <h3 class="text-center" style="font-size:20px; color: white"> <%= result %> conversations en cours.</h3>
+      </div>
+    </div>
     <hr>
       <div class="conversations-list">
           <% @conversations.each do |conversations| %>
           <% conversations.each do |conversation| %>
-            <div class="">
+          <div class="<%= conversation.messages.unread_by(current_user).length != 0 ? 'unique-conversation-unread' : 'unique-conversation' %>">
               <div class="item-avatar">
-                <% if conversation.recipient.facebook_picture_url%>
-                  <div class="item-avatar" style="background-image:linear-gradient(-225deg, rgba(30,30,30,0.15) 30%, rgba(46,46,46,0.5) 80%), url('<%= cl_image_path conversation.recipient.facebook_picture_url%>')">
+
+              <% if current_user.id == conversation.recipient_id %>
+
+                <% if conversation.sender.facebook_picture_url || conversation.sender.photo.url %>
+                <% photo = conversation.sender.facebook_picture_url || conversation.sender.photo.url %>
+                  <div class="item-avatar" style=" background-image:url('<%= cl_image_path photo %>')">
+                  </div>
+                <% else %>
+                  <div class="item-avatar" style="background-image:url('https://placehold.it/100x100')">
+                  </div>
+                <% end %>
+
+              <% else %>
+
+                <% if conversation.recipient.facebook_picture_url || conversation.recipient.photo.url %>
+                <% photo = conversation.recipient.facebook_picture_url || conversation.recipient.photo.url %>
+                  <div class="item-avatar" style=" background-image:linear-gradient(-225deg, rgba(30,30,30,0.15) 30%, rgba(46,46,46,0.5) 80%), url('<%= cl_image_path photo %>')">
                   </div>
                 <% else %>
                   <div class="item-avatar" style="background-image:linear-gradient(-225deg, rgba(30,30,30,0.15) 30%, rgba(46,46,46,0.5) 80%), url('https://placehold.it/100x100')">
                   </div>
+                <% end %>
+
                 <% end %>
               </div>
 
@@ -22,20 +53,26 @@
 
               <div class="last-message-conversation">
                 <p class="text-message-preview">
-                  <%= link_to "#{conversation.messages.last.body[0..30].gsub(/\s\w+$/,'...') if conversation.messages.last}", mark_as_read_path(conversation)%>
+                  <%= link_to "#{conversation.messages.last.body[0..50].gsub(/\s\w+$/,'...') if conversation.messages.last}", mark_as_read_path(conversation)%>
                   </p>
 
                 <p style="font-size: 12px">
-                  <%= conversation.messages.last.created_at.strftime("Send on %m/%d")  if conversation.messages.last %>
+                  <%= conversation.messages.last.created_at.strftime("Envoyé le %m/%d")  if conversation.messages.last %>
                 </p>
               </div>
+            </div>
               <% end %>
             <% end %>
+
           <div class="dots"></div>
-          </div>
+
         <% end %>
+
       </div>
     </div>
   </div>
 </div>
+<div class="padded-little"></div>
+<div class="padded-little"></div>
+<div class="padded-little"></div>
 <div class="padded-little"></div>

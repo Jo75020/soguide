@@ -48,6 +48,10 @@
   overflow-y: scroll;
   background-color: white;
   padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
 }
 
 .flexbox-messages-current{
@@ -87,6 +91,7 @@
   align-items: center;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   height: 80px;
+  color:rgba(0, 0, 0, 0.68);
   .item-avatar {
     height: 80px;
     width: 80px;
@@ -95,14 +100,18 @@
 
 }
 
+.flex {
+  display: flex;
+}
+
 .unique-conversation-unread{
   display:flex;
   margin-top: 10px;
-  align-items: center;
   background-color:white;
+  align-items: center;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   height: 80px;
-  padding-right: 10px;
+  background: rgba(0, 128, 0, 0.1);
   .item-avatar {
     height: 80px;
     width: 80px;
@@ -129,7 +138,7 @@
     background: #364A7E;
   }
   a{
-    flex: 1
+
   }
 
 }

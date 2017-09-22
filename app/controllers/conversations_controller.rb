@@ -5,6 +5,8 @@ def index
  @conversations = []
  @conversations << Conversation.where(sender_id: current_user.id)
  @conversations << Conversation.where(recipient_id: current_user.id)
+ @recipient_conversations = Conversation.where(recipient_id: current_user.id)
+ @sender_conversations = Conversation.where(sender_id: current_user.id)
  end
 def create
  if Conversation.between(params[:sender_id],params[:recipient_id])
