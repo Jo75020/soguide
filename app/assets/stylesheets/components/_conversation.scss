@@ -96,9 +96,10 @@
   height: 80px;
   color:rgba(0, 0, 0, 0.68);
   .item-avatar {
-    height: 80px;
-    width: 80px;
+    height: 50px;
+    width: 50px;
     background-size: cover;
+    border-radius: 50%;
   }
 
 }
@@ -131,9 +132,10 @@
   height: 80px;
   background: rgba(0, 128, 0, 0.1);
   .item-avatar {
-    height: 80px;
-    width: 80px;
+    height: 50px;
+    width: 50px;
     background-size: cover;
+    border-radius: 50%;
   }
   .last-message-conversation{
     position: relative;
@@ -186,7 +188,7 @@
 }
 
 .conversations-list{
-  padding: 20px;
+
   padding-top: 0px;
   border-right: 1Px solid #eeeeee;
 }
@@ -229,4 +231,17 @@ textarea {
 .full-name-messagerie {
   font-size: 14px;
     text-align: center;
+}
+
+.text-message-preview a {
+font-size: 16px;
+margin: 0;
+}
+
+.text-message-preview p {
+  margin: 0;
+}
+
+.text-message-preview {
+  margin: 0;
 }
