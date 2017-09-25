@@ -27,7 +27,7 @@ before_filter :authorize_admin
       if params[:file].nil?
         render :import_guides
       else
-        headers_true = ["email","password","prenom","nom","annee de naissance","code postal","raison dinscription","photo","numero mobile","numero fixe","regions","type de guide","experience","structure","site web","license","langues","description","main review","url","pays"]
+        headers_true = ["email","password","prenom","nom","annee de naissance","code postal","raison dinscription","photo","numero mobile","numero fixe","regions","type de guide","experience","structure","site web","license","langues","description","main review","url","pays", "email secondaire", "pays 2", "facebook_profil_url", "facebook_profil_page", "genre"]
         csv_options = { col_sep: ',', headers: :first_row }
         filepath = params[:file].path
         headers = CSV.read(filepath, headers: true).headers
