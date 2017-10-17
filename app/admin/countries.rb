@@ -14,7 +14,6 @@ ActiveAdmin.register Country do
       f.input :name
       f.input :address
       f.input :photo
-      f.label :images
       f.input :images, as: :file, input_html: { multiple: true }
       f.input :description
       f.input :full_description
