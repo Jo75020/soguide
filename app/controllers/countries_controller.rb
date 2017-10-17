@@ -35,7 +35,7 @@ class CountriesController < ApplicationController
       end
     end
     if params[:search] == "" || params[:search].nil?
-      @results = Country.where.not(latitude: nil, longitude: nil)
+      @results = Country.all
     end
   end
 
