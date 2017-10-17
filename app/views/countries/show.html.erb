@@ -59,18 +59,20 @@
           <div class="description-up-right-part" style="padding:6%;display: flex;flex-direction: column;justify-content: space-between;">
           <p style="font-size: 14px"> <%= @country.description %> </p>
           <div class="padded" style="padding-bottom: 4%;"></div>
-            <%= link_to "En savoir plus", root_path, class:"btn btn-default"%>
+          <button type="button" class="btn btn-default" id="go-down">En savoir plus</button>
           </div>
           <div class="padded" style="padding-bottom: 5%"></div>
           <div class="photo-up-right-part" style="width: 112%;margin-left: -15px;background-image:url('<%= asset_path @country.images.second.url, crop: :fill %>')">
 
           </div>
         </div>
+
     </div>
+
 </div>
 
-
-
+<div class="test" id="im-down"></div>
+<div class="padded-little"></div>
 <div class="container">
   <div class="row">
     <div class="col-md-6 country-page-left-btm-part" style="    background-image: linear-gradient(-225deg, rgba(30, 30, 30, 0.53) 30%, rgba(46, 46, 46, 0.87) 80%);color: white;font-weight: 300;font-size: 15px;padding: 4%;height: 50vh;">
@@ -81,7 +83,20 @@
     <div class="col-md-6 photo-btm-right-part" style="background-image:url('<%= asset_path @country.images.fourth.url, crop: :fill %>')">
     </div>
     <div class="col-md-6 country-page-left-btm-part" style="font-weight: 300;font-size: 15px;padding: 4%;height: 50vh;">
-      <%= @country.full_description %>
+      <%= @country.best_period %>
     </div>
   </div>
 </div>
+
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+      $(document).ready(function() {
+        $("#go-down").click(function() {
+            $('html,body').animate({
+                scrollTop: $("#im-down").offset().top},
+                'slow');
+        });
+      });
+  <% end %>
+<% end %>
