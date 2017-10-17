@@ -1,0 +1,72 @@
+.label-sign {
+  font-size: 16px;
+}
+
+.sign-col-right {
+  border-bottom-right-radius: 5%;
+  border-top-right-radius: 5%;
+  background-color: white;
+  h2 {
+    text-align: center;
+    color: #615d5d;
+    font-size: 32px;
+    font-weight: 600;
+  }
+}
+
+.label-sign {
+  font-weight:400;
+}
+
+.sign-col-left {
+height:504px;
+border-top-left-radius: 7%;
+border-bottom-left-radius: 7%;
+background-size: cover !important;
+background: no-repeat center center;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+}
+
+.form-actions a {
+      color: #225b25;
+    font-weight: 300;
+}
+
+.btn-bottom {
+  display:flex;
+  justify-content: space-around;
+}
+
+.btn-bottom a {
+    color: white;
+    text-decoration: none;
+}
+
+#new_user > div.bottom-links > div > input {
+  font-size: 16px;
+}
+
+.black {
+  background-color: rgba(127, 127, 127, 0.28);
+}
+
+.un-scroled {
+  overflow: hidden;
+}
+
+.ligned-by-2 {
+  display: flex;
+  justify-content: space-between;
+}
+
+#new_user {
+  padding: 6%;
+}
+
+.centered a {
+  text-decoration: none;
+  color: white;
+}

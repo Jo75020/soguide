@@ -3,7 +3,8 @@ class CountriesController < ApplicationController
     skip_before_action :authenticate_user!, only: [:show, :index]
 
   def create
-    @country = Country.create(country_params)
+    @country = Country.new(country_params)
+    @country.save!
     flash[:notice] = "country #{@country.name} has been created"
     redirect_to pages_add_country_path
   end
@@ -19,6 +20,7 @@ class CountriesController < ApplicationController
 
   def show
     @guides = Guide.where(pays: @country.name)
+    @reviews = Review.all
     @alert_message = "You are viewing #{@country.name}"
     @country_coordinates = { lat: @country.latitude, lng: @country.longitude }
 
@@ -50,7 +52,7 @@ class CountriesController < ApplicationController
   private
 
   def country_params
-    params.require(:country).permit(:name, :description, :photo, :photo_cache, :address, :full_description, :best_period, :latitude, :longitude)
+    params.require(:country).permit(:name, :description, :photo, :photo_cache, :address, :full_description, :best_period, :latitude, :longitude, {images: []})
   end
 
   def set_country

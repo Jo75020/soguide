@@ -1,72 +1,87 @@
 <div class="padded-little"></div>
-
-    <div class="banner-country" style="background-image:url('<%= cl_image_path @country.photo, crop: :fill %>')">
-  <div class="banner-content">
-  <H1 style="    font-weight: 400;
-    color: #fff;
-    display: inline-block;
-    line-height: 1.5em;
-    vertical-align: middle;
-    font-family: Lato,sans-serif;
-    font-size: 60px;
-    font-weight: 300;
-    margin: 0;"> <%= @country.name %> </H1>
-  </div>
+<div class="banner-country" style="background-image:url('<%= cl_image_path @country.images.first.url, crop: :fill %>')">
+    <div class="banner-content">
+        <h1 class="title-contries"> <%= @country.name %> </h1>
+    </div>
 </div>
+<div class="container">
+    <div class="row">
+        <div class="padded"></div>
+        <div class="col-md-9">
+            <div class="guide-car-wrapper">
+              <% @guides.limit(3).each do |g | %>
+              <div class="card-guide">
+                <div class="guide-car-left-part">
+                  <div class="pic-guide-left-part">
+                    <% guide_picture = g.user.facebook_picture_url || g.user.photo%>
+                    <%= image_tag guide_picture %>
+                  </div>
+                </div>
+                <div class="guide-car-right-part">
+                  <div class="up-part-flexed" style="display: flex;justify-content: space-between;">
+                  <div class="title-guide-right-part">
+                  <h3 style="margin:0px;font-weight: 500;"> <%= g.user.first_name.capitalize %> <%= g.user.last_name %> </h3>
+                  </div>
+                  <div class="flag-guide-right-part">
+                  <p><%= image_tag "http://cdn2.iconfinder.com/data/icons/flags/flags/32/#{g.language}.png" %>
+                  <% if g.language_second.nil? != true  %>
+                  <%= image_tag "http://cdn2.iconfinder.com/data/icons/flags/flags/32/#{g.language_second}.png", alt: "" %>
+                  <% end %>
+                  </p>
+                  </div>
+                  </div>
+                  <div class="region-guide-right-part">
+                  <p style="font-size: 14px;"> <span style="color:#099c03">Régions :</span> <%= g.regions %> principalement </p>
+                  </div>
+                  <div class="comment-guide-right-part">
+                    <% reviews = Review.where(guide_id: g.id) %>
+                    <% if reviews != [] %>
+                    <p style="margin: 0px;font-size: 14px;"> <span style="color:#099c03"> <%= reviews.first.user.first_name %> <%= reviews.first.user.last_name %>, <%= reviews.first.created_at.strftime("%B %Y")  %> :</span>
+                    <%= reviews.first.content %></p>
+                    <% else %>
+                    <p style="margin: 0px;font-size: 14px;"> <span style="color:#099c03"> Avis sur le guide :</span>
+                    Il n'y a aucun Avis sur ce guide pour l'instant ! N'hésitez pas à vous connecter pour laisser un avis si vous avez voyagé avec <span style="color:#099c03"> <%= g.user.first_name %> <%= g.user.last_name %> </span> </p>
+                    <% end %>
+                  </div>
+                  <div class="down-part-flexed" style="display: flex;justify-content: space-between;">
+                  <span><%= image_tag "#{g.guide_type}.png", class:"mini-picto" %></span>
+                  <%= link_to "Plus d'infos", guide_path(g), class:"btn btn-default"%>
+                  </div>
+                </div>
+              </div>
+              <% end %>
+            </div>
+            <div class="text-center">
+            <%= link_to "Charger plus de guides", root_path, class:"btn btn-default"%>
+            </div>
+        </div>
+        <div class="col-md-3" style="display: flex;margin-top: 20px;height: 100vh;box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 -1px 6px rgba(0, 0, 0, 0.23);flex-direction: column;align-content: center;">
+          <div class="description-up-right-part" style="padding:6%;display: flex;flex-direction: column;justify-content: space-between;">
+          <p style="font-size: 14px"> <%= @country.description %> </p>
+          <div class="padded" style="padding-bottom: 4%;"></div>
+            <%= link_to "En savoir plus", root_path, class:"btn btn-default"%>
+          </div>
+          <div class="padded" style="padding-bottom: 5%"></div>
+          <div class="photo-up-right-part" style="width: 112%;margin-left: -15px;background-image:url('<%= cl_image_path @country.images.second.url, crop: :fill %>')">
+
+          </div>
+        </div>
+    </div>
+</div>
+
+
 
 <div class="container">
   <div class="row">
-
-    <div class="padded"></div>
-    <div class="col-md-10">
-      <p class="description-country"> <%= @country.full_description %></p>
-      <h3 class="sub-title">Quand partir? - Les meilleures périodes pour visiter l'<%= @country.name %></h3>
-      <p class="description-country"> <%= @country.best_period %></p>
-
+    <div class="col-md-6 country-page-left-btm-part" style="    background-image: linear-gradient(-225deg, rgba(30, 30, 30, 0.53) 30%, rgba(46, 46, 46, 0.87) 80%);color: white;font-weight: 300;font-size: 15px;padding: 4%;height: 50vh;">
+      <%= @country.full_description %>
     </div>
-      <div class="padded-little"></div>
-
-      <h3 class="sub-title" id="div_element3" ></h3>
-
-    <% @guides.each do |guide| %>
-    <div class="col-md-4 card-menu">
-    <div class="card-menu-body">
-    <%= link_to guide_path(guide) do %>
-      <% avatar_url = guide.user.facebook_picture_url || guide.user.photo%>
-      <%= image_tag avatar_url, class: "img-card-menu"%>
-
-      <h4 class="title-link"> <%= guide.user.first_name %> <%= guide.user.last_name %> </h4>
-      <p style="text-align: left;font-size: 12px;
-    line-height: 28px;
-    color: #777;
-    font-weight: 400;
-    overflow-x: hidden!important;
-    -webkit-font-smoothing: antialiased;"><i class="fa fa-smile-o"></i> 8.0  Superb</p>
-      <p style="text-align: left;font-size: 12px;
-    line-height: 19px;
-    color: #777;
-    font-weight: 400;
-    overflow-x: hidden!important;
-    -webkit-font-smoothing: antialiased;"> <%= guide.soguide_description %> </p>
-    <% end %>
+    <div class="col-md-6 photo-btm-right-part" style="background-image:url('<%= cl_image_path @country.images.third.url, crop: :fill %>')">
     </div>
+    <div class="col-md-6 photo-btm-right-part" style="background-image:url('<%= cl_image_path @country.images.fourth.url, crop: :fill %>')">
     </div>
-
-
-
-
-
-
-
-
-    <% end %>
-
-
-
+    <div class="col-md-6 country-page-left-btm-part" style="font-weight: 300;font-size: 15px;padding: 4%;height: 50vh;">
+      <%= @country.full_description %>
     </div>
-
-
+  </div>
 </div>
-
-
-

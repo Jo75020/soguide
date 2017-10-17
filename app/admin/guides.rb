@@ -1,5 +1,5 @@
 ActiveAdmin.register Guide do
-    permit_params :first_name, :last_name, :email, :mobile_phone, :phone, :regions, :guide_type, :experience, :structure, :structure_website, :license, :language, :soguide_description, :main_review, :soguide_url, :pays, :user_id
+    permit_params :first_name, :last_name, :email, :mobile_phone, :phone, :regions, :guide_type, :experience, :structure, :structure_website, :license, :language, :soguide_description, :main_review, :soguide_url, :pays, :user_id, :language_second
 
   index do
     selectable_column
@@ -25,6 +25,7 @@ ActiveAdmin.register Guide do
       f.input :structure_website
       f.input :license
       f.input :language
+      f.input :language_second
       f.input :soguide_description
       f.input :soguide_url
       f.input :main_review

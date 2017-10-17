@@ -15,9 +15,9 @@ ActiveAdmin.register User do
       f.input :first_name
       f.input :last_name
       f.input :email
+      f.input :password
+      f.input :password_confirmation
       f.input :photo
-      f.label :photos_licenses
-      f.file_field :photos_licenses, multiple: true
       f.input :admin
     end
     f.actions
