@@ -47,6 +47,7 @@ class CountriesController < ApplicationController
 
   def country_params
     params.require(:country).permit(:name, :description, :photo, :photo_cache, :address, :full_description, :best_period, :latitude, :longitude, {images: []})
+
   end
 
   def set_country

@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20171017120122) do
     t.string   "address"
     t.text     "full_description"
     t.text     "best_period"
-    t.text     "images",                        array: true
+    t.string   "images",                        array: true
   end
 
   create_table "guides", force: :cascade do |t|

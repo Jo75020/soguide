@@ -10,10 +10,8 @@ ActiveAdmin.register Country do
   end
 
       form :html => { :multipart => true } do |f|
-    f.inputs "Identity" do
+      f.inputs "Identity" do
       f.input :name
-      f.input :address
-      f.input :photo
       f.input :images, as: :file, input_html: { multiple: true }
       f.input :description
       f.input :full_description

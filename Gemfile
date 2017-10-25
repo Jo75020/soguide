@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.3.3'
 
+gem "mini_magick"
 gem 'postmark-rails'
 gem 'mechanize'
 gem 'awesome_print'
