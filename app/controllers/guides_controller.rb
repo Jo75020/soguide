@@ -1,6 +1,7 @@
 class GuidesController < ApplicationController
 
   def show
+  @message = Message.new
   @user = current_user
   @review = Review.new
   @guide = Guide.find(params[:id])
@@ -19,9 +20,10 @@ class GuidesController < ApplicationController
 
 
   def check_in
-      @guide = Guide.find(params[:format])
+      @guide = Guide.find(params[:guide_id])
       @user = current_user
-      GuideMailer.guide_check_in(@guide, @user).deliver_now
+      @message = params[:message][:body]
+      GuideMailer.guide_check_in(@guide, @user, @message).deliver_now
   end
 
 

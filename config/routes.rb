@@ -16,6 +16,10 @@ mount Attachinary::Engine => "/attachinary"
     resources :messages
   end
   get 'check', to: 'guides#check_in'
+  post "check" => 'guides#check_in'
+
+
+
   get 'mark_as_read', to: 'conversations#mark_as_read_own'
     resources :guides do
     resources :reviews, only: [ :index, :new, :create ]
