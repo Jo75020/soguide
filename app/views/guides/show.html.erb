@@ -62,10 +62,11 @@
             <h3 style="color:#099c03;padding-left:2%; font-weight: 400;">Contacter ce guide !</h3>
             <div class="contact-form-guide-show">
             <%= form_for (@message), :url => url_for(:controller => 'guides', :action => 'check_in') do |f| %>
-              <%= f.label :body  %>
               <%= f.text_field :body %>
               <%= hidden_field_tag :guide_id, @guide.id %>
-              <%= f.submit %>
+              <div class="submit-button-right">
+              <%= f.submit 'Envoyer !', :class => 'submit-form-guide' %>
+              </div>
             <% end %>
             </div>
         </div>
