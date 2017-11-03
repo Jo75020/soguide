@@ -1,7 +1,7 @@
 <div class="padded-little"></div>
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12" style="border-right: 1px solid rgba(0,0,0,0.08);border-bottom: 1px solid rgba(0,0,0,0.08);">
             <div class="card-guide-show">
                 <div class="guide-car-left-part">
                     <div class="pic-guide-left-part guide-show-pic" style="min-width: 300px;">
@@ -59,7 +59,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <h3 style="color:green; font-weight: 500;">Contacter ce guide !</h3>
+            <h3 style="color:#099c03;padding-left:2%; font-weight: 400;">Contacter ce guide !</h3>
             <div class="contact-form-guide-show">
             </div>
         </div>
@@ -69,7 +69,7 @@
 </div>
 <div class="container">
     <div class="row">
-        <h3 style="color:green; font-weight: 500;">Ils ont voyagé avec guide et le recommandent !</h3>
+        <h3 style="color:#099c03;padding:2%; font-weight: 400;">Ils ont voyagé avec guide et le recommandent !</h3>
         <div class="col-md-12 all-messages-guide-show">
             <% @reviews.each do |review| %>
                 <% if review.checked == true %>
@@ -93,10 +93,12 @@
         <%= simple_form_for [@guide, @review] do |f| %>
             <%= f.label "Donnez votre avis !", class:"sub-title-guide" %>
             <div class="all-messages-guide-show" style="padding: 2%;">
-                <p>Les recommandations ne seront publiées qu'après validation par l'équipe SoGuide.</p>
+                <p style="color: grey;font-size: 16px;">Si vous avez voyagé avec ce guide, vous pouvez déposer un avis et nous le publierons dans les jours suivants !</p>
                 <%= f.input :content, label: false, requiered: true %>
-                    <%= f.submit "add a review", class: "btn-default" %>
+                <div class="submit-button-right">
+                    <%= f.submit "Envoyer ->", class: "btn-default" %>
                         <% end %>
+                        </div>
                         </div>
                             <div class="row">
                                 <div class="col-md-12">
