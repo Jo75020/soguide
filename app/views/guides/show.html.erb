@@ -1,15 +1,15 @@
 <div class="padded-little"></div>
 <div class="container">
     <div class="row">
-        <div class="col-md-12" style="border-right: 1px solid rgba(0,0,0,0.08);border-bottom: 1px solid rgba(0,0,0,0.08);">
+        <div class="col-md-12" style="border-right: 1px solid rgba(0,0,0,0.08);">
             <div class="card-guide-show">
                 <div class="guide-car-left-part">
-                    <div class="pic-guide-left-part guide-show-pic" style="min-width: 300px;">
-                        <% guide_picture = @guide.user.facebook_picture_url || @guide.user.photo %>
-                            <%= image_tag guide_picture %>
+                    <% guide_picture = @guide.user.facebook_picture_url || @guide.user.photo %>
+                    <div class="pic-guide-left-part guide-show-pic" style="background-image:url('<%= cl_image_path guide_picture, crop: :fill %>')">
+
                     </div>
                 </div>
-                <div class="guide-car-right-part">
+                <div class="guide-car-right-part" style="border-bottom: 1px solid rgba(0,0,0,0.08);">
                     <div class="up-part-flexed" style="display: flex;justify-content: space-between;">
                         <div class="title-guide-right-part">
                             <h3 style="margin:0px;font-weight: 500;"> <%= @guide.user.first_name.capitalize %> <%= @guide.user.last_name %> </h3>
@@ -70,7 +70,7 @@
             <% end %>
             </div>
         </div>
-        <div class="col-md-6 guide-video-square" style="background-image:url('<%= cl_image_path @countries.first.photos.first.path, crop: :fill %>');height: 250px;">
+        <div class="col-md-6 guide-video-square" style="background-image:url('<%= cl_image_path @countries.first.photos.sample.path, crop: :fill %>');height: 250px;">
         </div>
     </div>
 </div>

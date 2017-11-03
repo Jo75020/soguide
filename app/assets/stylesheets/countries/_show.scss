@@ -318,9 +318,14 @@
 }
 
 
-.guide-show-pic img {
-    min-width: 300px;
-    min-height: 300px;
+.guide-show-pic  {
+    height: 250px;
+    background-size: cover !important;
+    background: no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .rounded {
