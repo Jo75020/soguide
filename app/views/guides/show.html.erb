@@ -1,116 +1,129 @@
 <div class="padded-little"></div>
-
-
 <div class="container">
-  <div class="row">
-    <div class="col-md-9" style="border-right: 1px solid rgba(0, 0, 0, 0.12);">
-      <div class="top-guide-page" >
-      <h2 class="h-styled" > <%= @guide.guide_type %> </br> <%= @guide.user.first_name %> <%= @guide.user.last_name %> </h2>
-      <p class="p-styled"> <%= @reviews.length %> avis sur ce guide </p></br>
-      <p class="p-styled"> <%= @trips.length %> trips effectués avec Soguide </p>
-      </div>
-    <div class="part-up">
-      <div class="first-part-guide">
-      <div class="top-block" style="padding-bottom: 15%;">
-      <p class="p-styled">Expérience mode de vie </br> Proposée par <span style="color: #008489;"><%= @guide.user.first_name %> <%= @guide.user.last_name %></span> </p>
-      </div>
-      <p class="p-styled"><i class="fa fa-globe" aria-hidden="true"></i> <span>Régions :</span> <%= @guide.regions %></p>
-      <p class="p-styled"><i class="fa fa-cogs" aria-hidden="true"></i> <span>Expérience :</span> <%= @guide.experience %> annnées</p>
-      <p class="p-styled"><i class="fa fa-comments-o" aria-hidden="true"></i> <span >Langues :</span> <%= @guide.language %></p>
-      <p class="p-styled"><i class="fa fa-id-card-o" aria-hidden="true"></i> <span >License :</span> <%= @guide.license %></p>
-      <p class="p-styled"><i class="fa fa-share" aria-hidden="true"></i> <span >Structure :</span> <%= @guide.structure %></p>
-      </div>
-      <div class="second-part-guide">
-        <% avatar_url = @guide.user.facebook_picture_url || @guide.user.photo %>
-        <%= image_tag avatar_url, class: "avatar-small"%>
-      </div>
-    </div>
-    <div class="part-down">
-      <h3 class="sub-title">Vous voulez en savoir plus sur moi ? - Voici ma description</h3>
-      <p class="description-country"> <%= @guide.soguide_description %></p>
-    </div>
-
-
-
-
-      <h3 class="sub-title">Ce que pense nos voyageurs sur les voyages avec <%= @guide.user.first_name %> <%= @guide.user.last_name %></h3>
-    </div>
-    <div class="col-md-3 text-center" style="margin-bottom: 13px;margin-left:-15px;">
-      <% avatar_url = @guide.user.facebook_picture_url || @guide.user.photo %>
-      <%= image_tag avatar_url, class: "img-full-profil"%>
-    </div>
-
-    <div class="col-md-3" style="margin-top: 10px;">
-          <%= link_to "Contacter #{@guide.user.first_name} #{@guide.user.last_name}! ", check_path(@guide, @user), class:"btn-primary green"%>
-    </div>
-
-</div>
-</div>
-
-<div class="container">
-<div class="row">
-
-    <% @reviews.each do |review| %>
-
-    <% if review.checked == true %>
-    <div class="col-md-12">
-        <div class="message">
-      <% avatar_url = review.user.facebook_picture_url || review.user.photo %>
-      <%= image_tag avatar_url, class: "avatar-small"%>
-        <div class="message-name">
-          <h3> <%= review.user.first_name %> </h3>
-          <p> <%= review.created_at.strftime("%m/%d/%y") %> </p>
-        </div>
-        <div class="message-body">
-          <p><strong> <%= review.user.first_name %> à visiter l'<%= @guide.pays %> avec <%= review.guide.user.first_name %> <%= review.guide.user.last_name %></strong></p>
-          <p>
-            <%= review.content %>
-          </p>
-        </div>
-        <div class="message-status">
-          <p class="status pending">Pending</p>
-          <p class="price">xxx</p>
-        </div>
-      </div>
-    </div>
-  <% end %>
-  <% end %>
-
-<%= simple_form_for [@guide, @review] do |f| %>
-<%= f.label "Pour donner son avis sur ce guide ? C'est ici !", class:"sub-title" %>
-<p>Les recommandations ne seront publiées qu'après validation par l'équipe SoGuide.</p>
-  <%= f.input :content, label: false, requiered: true %>
-  <%= f.submit "add a review", class: "btn-default" %>
-<% end %>
-
-
     <div class="row">
-    <div class="col-md-12">
-      <h3 class="sub-title">Autres guides en <%= @guide.pays %></h3>
+        <div class="col-md-12">
+            <div class="card-guide-show">
+                <div class="guide-car-left-part">
+                    <div class="pic-guide-left-part guide-show-pic" style="min-width: 300px;">
+                        <% guide_picture = @guide.user.facebook_picture_url || @guide.user.photo %>
+                            <%= image_tag guide_picture %>
+                    </div>
+                </div>
+                <div class="guide-car-right-part">
+                    <div class="up-part-flexed" style="display: flex;justify-content: space-between;">
+                        <div class="title-guide-right-part">
+                            <h3 style="margin:0px;font-weight: 500;"> <%= @guide.user.first_name.capitalize %> <%= @guide.user.last_name %> </h3>
+                        </div>
+                    </div>
+                    <div class="region-guide-right-part" style="align-items:center;display: flex;justify-content: left;">
+                        <%= image_tag 'map.png', class:'picto-guide' %>
+                            <p style="font-size: 14px;"> <span style="color:#099c03;font-size: 16px;">Régions :</span>
+                                <%= @guide.regions %> principalement </p>
+                    </div>
+                    <div class="region-guide-right-part" style="align-items:center;display: flex;justify-content: left;">
+                        <%= image_tag 'library.png', class:'picto-guide' %>
+                            <p style="font-size: 14px;"> <span style="color:#099c03;font-size: 16px;">Langues :</span>
+                                <%= image_tag "http://cdn2.iconfinder.com/data/icons/flags/flags/32/#{@guide.language}.png", class:'flag-marged' %>
+                                    <% if @guide.language_second.nil? != true  %>
+                                        <%= image_tag "http://cdn2.iconfinder.com/data/icons/flags/flags/32/#{@guide.language_second}.png", alt: "" %>
+                                            <% end %>
+                            </p>
+                    </div>
+                    <div class="region-guide-right-part" style="align-items:center;display: flex;justify-content: left;">
+                        <%= image_tag 'degree.png', class:'picto-guide' %>
+                            <p style="font-size: 14px;"> <span style="color:#099c03;font-size: 16px;">License :</span>
+                                <%= @guide.license %>
+                            </p>
+                    </div>
+                    <div class="region-guide-right-part" style="align-items:center;display: flex;justify-content: left;">
+                        <%= image_tag 'degree.png', class:'picto-guide' %>
+                            <p style="font-size: 14px;"> <span style="color:#099c03;font-size: 16px;">Associés :</span> Incomming soon !</p>
+                    </div>
+                    <div class="comment-guide-right-part">
+                        <% reviews = Review.where(guide_id: @guide.id) %>
+                            <% if reviews != [] %>
+                                <p style="margin: 0px;font-size: 14px;"> <span style="color:#099c03;font-size: 16px;font-weight: 500;"> <%= reviews.first.user.first_name %> <%= reviews.first.user.last_name %>, <%= reviews.first.created_at.strftime("%B %Y")  %> :</span> "
+                                    <%= reviews.first.content %>"
+                                </p>
+                                <% else %>
+                                    <p style="margin: 0px;font-size: 14px;"> <span style="color:#099c03"> Avis sur le guide :</span> Il n'y a aucun Avis sur ce guide pour l'instant ! N'hésitez pas à vous connecter pour laisser un avis si vous avez voyagé avec <span style="color:#099c03"> <%= g.user.first_name %> <%= g.user.last_name %> </span> </p>
+                                    <% end %>
+                    </div>
+                    <div class="down-part-flexed" style="display: flex;justify-content: space-between;">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-6">
-
-      <% @guides.each do |guide| %>
-      <div class="col-md-6 card-wrapper">
-
-
-
-        <% avatar_url = guide.user.facebook_picture_url || guide.user.photo%>
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h3 style="color:green; font-weight: 500;">Contacter ce guide !</h3>
+            <div class="contact-form-guide-show">
+            </div>
+        </div>
+        <div class="col-md-6 guide-video-square" style="background-image:url('<%= cl_image_path @countries.first.photos.first.path, crop: :fill %>');height: 250px;">
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <h3 style="color:green; font-weight: 500;">Ils ont voyagé avec guide et le recommandent !</h3>
+        <div class="col-md-12 all-messages-guide-show">
+            <% @reviews.each do |review| %>
+                <% if review.checked == true %>
+                    <div class="col-md-12">
+                        <div class="message" style="border-bottom: 1px solid #80808054;">
+                            <% avatar_url = review.user.facebook_picture_url || review.user.photo %>
+                                <%= image_tag avatar_url, class: "avatar-small rounded"%>
+                                    <div class="message-body">
+                                        <p> <span class="green" style="font-weight: 500;"><%= review.user.first_name %> <%= review.user.last_name %>,</span>
+                                            <%= review.created_at.strftime("%m/%d/%y") %> : </p>
+                                        <p style="color:black;">
+                                            "
+                                            <%= review.content %> "
+                                        </p>
+                                    </div>
+                        </div>
+                    </div>
+                    <% end %>
+                        <% end %>
+        </div>
+        <%= simple_form_for [@guide, @review] do |f| %>
+            <%= f.label "Donnez votre avis !", class:"sub-title-guide" %>
+            <div class="all-messages-guide-show" style="padding: 2%;">
+                <p>Les recommandations ne seront publiées qu'après validation par l'équipe SoGuide.</p>
+                <%= f.input :content, label: false, requiered: true %>
+                    <%= f.submit "add a review", class: "btn-default" %>
+                        <% end %>
+                        </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h3 class="sub-title">Autres guides en <%= @guide.pays %></h3>
+                                </div>
+                                <div class="col-md-6">
+                                    <% @guides.each do |guide| %>
+                                        <div class="col-md-6 card-wrapper">
+                                            <% avatar_url = guide.user.facebook_picture_url || guide.user.photo%>
+                                                <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
            url('<%= cl_image_path avatar_url, height: 300, width: 400, crop: :fill %>')">
-        <div class="card-category">
-        <span></span>
-        </div>
-        <div class="card-description">
-        <%= guide.guide_type %>
-        </div>
-        <%= link_to "", guide_path(guide), class:"card-link" %>
-      </div>
-      <p class="index-card-title"><%= guide.user.first_name %> <%= guide.user.last_name %></p>
-      <p class="test-css"></p>
-      </div>
-      <% end %>
-      </div>
+                                                    <div class="card-category">
+                                                        <span></span>
+                                                    </div>
+                                                    <div class="card-description">
+                                                        <%= guide.guide_type %>
+                                                    </div>
+                                                    <%= link_to "", guide_path(guide), class:"card-link" %>
+                                                </div>
+                                                <p class="index-card-title">
+                                                    <%= guide.user.first_name %>
+                                                        <%= guide.user.last_name %>
+                                                </p>
+                                                <p class="test-css"></p>
+                                        </div>
+                                        <% end %>
+                                </div>
+                            </div>
     </div>
-  </div>
 </div>
