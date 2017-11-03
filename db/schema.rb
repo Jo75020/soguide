@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171028141332) do
+ActiveRecord::Schema.define(version: 20171103113708) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,8 +52,8 @@ ActiveRecord::Schema.define(version: 20171028141332) do
   end
 
   create_table "countries", force: :cascade do |t|
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.string   "name"
     t.string   "description"
     t.float    "latitude"
@@ -61,8 +61,6 @@ ActiveRecord::Schema.define(version: 20171028141332) do
     t.string   "address"
     t.text     "full_description"
     t.text     "best_period"
-    t.string   "photos",                                     array: true
-    t.json     "images",           default: []
   end
 
   create_table "guides", force: :cascade do |t|

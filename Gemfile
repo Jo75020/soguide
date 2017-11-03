@@ -31,6 +31,12 @@ source 'https://rails-assets.org' do
 end
 gem "geocoder"
 
+
+
+gem 'formtastic', '~> 3.0'
+gem 'attachinary', github: 'assembler/attachinary'
+gem 'jquery-fileupload-rails'
+gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'cloudinary'
 gem 'autoprefixer-rails'

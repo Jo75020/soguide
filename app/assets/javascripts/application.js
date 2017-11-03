@@ -6,3 +6,6 @@
 //= require gmaps/google
 //= require gmaps-auto-complete
 //= require tinymce
+//= require jquery-fileupload/basic
+//= require cloudinary/jquery.cloudinary
+//= require attachinary

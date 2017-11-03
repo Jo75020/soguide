@@ -1,5 +1,5 @@
 ActiveAdmin.register Country do
-    permit_params :name, :description, :photo, :photo_cache, :address, :full_description, :best_period, :country, :latitude, :longitude, {images: []}
+    permit_params :name, :description, :address, :full_description, :best_period, :country, photos: []
 
   index do
     selectable_column
@@ -12,7 +12,7 @@ ActiveAdmin.register Country do
       form :html => { :multipart => true } do |f|
       f.inputs "Identity" do
       f.input :name
-      f.input :images, as: :file, input_html: { multiple: true }
+      f.input :photos, as: :formtastic_attachinary
       f.input :description
       f.input :full_description
       f.input :best_period

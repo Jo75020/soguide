@@ -1,5 +1,5 @@
 <div class="padded-little"></div>
-<div class="banner-country" style="background-image:url('<%= asset_path @country.images.first.url, crop: :fill %>')">
+<div class="banner-country" style="background-image:url('<%= cl_image_path @country.photos.first.path, crop: :fill %>')">
     <div class="banner-content">
         <h1 class="title-contries"> <%= @country.name %> </h1>
     </div>
@@ -62,7 +62,7 @@
           <button type="button" class="btn btn-default" id="go-down">En savoir plus</button>
           </div>
           <div class="padded" style="padding-bottom: 5%"></div>
-          <div class="photo-up-right-part" style="width: 112%;margin-left: -15px;background-image:url('<%= asset_path @country.images.second.url, crop: :fill %>')">
+          <div class="photo-up-right-part" style="width: 112%;margin-left: -15px;background-image:url('<%= cl_image_path @country.photos.second.path, height: 300, width: 400, crop: :fill %>')">
 
           </div>
         </div>
@@ -78,9 +78,9 @@
     <div class="col-md-6 country-page-left-btm-part" style="    background-image: linear-gradient(-225deg, rgba(30, 30, 30, 0.53) 30%, rgba(46, 46, 46, 0.87) 80%);color: white;font-weight: 300;font-size: 15px;padding: 4%;height: 50vh;">
       <%= @country.full_description %>
     </div>
-    <div class="col-md-6 photo-btm-right-part" style="background-image:url('<%= asset_path @country.images.third.url, crop: :fill %>')">
+    <div class="col-md-6 photo-btm-right-part" style="background-image:url('<%= cl_image_path @country.photos.third.path, crop: :fill %>')">
     </div>
-    <div class="col-md-6 photo-btm-right-part" style="background-image:url('<%= asset_path @country.images.fourth.url, crop: :fill %>')">
+    <div class="col-md-6 photo-btm-right-part" style="background-image:url('<%= cl_image_path @country.photos.fourth.path, crop: :fill %>')">
     </div>
     <div class="col-md-6 country-page-left-btm-part" style="font-weight: 300;font-size: 15px;padding: 4%;height: 50vh;">
       <%= @country.best_period %>
