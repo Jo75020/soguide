@@ -46,7 +46,7 @@
                                     <%= reviews.first.content %>"
                                 </p>
                                 <% else %>
-                                    <p style="margin: 0px;font-size: 14px;"> <span style="color:#099c03"> Avis sur le guide :</span> Il n'y a aucun Avis sur ce guide pour l'instant ! N'hésitez pas à vous connecter pour laisser un avis si vous avez voyagé avec <span style="color:#099c03"> <%= g.user.first_name %> <%= g.user.last_name %> </span> </p>
+                                    <p style="margin: 0px;font-size: 14px;"> <span style="color:#099c03"> Avis sur le guide :</span> Il n'y a aucun Avis sur ce guide pour l'instant ! N'hésitez pas à vous connecter pour laisser un avis si vous avez voyagé avec <span style="color:#099c03"> <%= @guide.user.first_name %> <%= @guide.user.last_name %> </span> </p>
                                     <% end %>
                     </div>
                     <div class="down-part-flexed" style="display: flex;justify-content: space-between;">
@@ -109,10 +109,11 @@
                         </div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <h3 class="sub-title">Autres guides en <%= @guide.pays %></h3>
+                                    <h3 style="color:#099c03;padding:2%; font-weight: 400;">Vous souhaitez contacter d'autres guides en <%= @guide.pays %></h3>
                                 </div>
                                 <div class="col-md-6">
                                     <% @guides.each do |guide| %>
+                                    <% unless guide == @guide %>
                                         <div class="col-md-6 card-wrapper">
                                             <% avatar_url = guide.user.facebook_picture_url || guide.user.photo%>
                                                 <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
@@ -121,16 +122,15 @@
                                                         <span></span>
                                                     </div>
                                                     <div class="card-description">
-                                                        <%= guide.guide_type %>
+
                                                     </div>
                                                     <%= link_to "", guide_path(guide), class:"card-link" %>
                                                 </div>
                                                 <p class="index-card-title">
-                                                    <%= guide.user.first_name %>
-                                                        <%= guide.user.last_name %>
                                                 </p>
-                                                <p class="test-css"></p>
+
                                         </div>
+                                        <% end %>
                                         <% end %>
                                 </div>
                             </div>
