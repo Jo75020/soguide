@@ -13,7 +13,7 @@
               <div class="card-guide">
                 <div class="guide-car-left-part">
                         <% guide_picture = g.user.facebook_picture_url || g.user.photo %>
-                    <div class="pic-guide-left-part guide-show-pic" style="background-image:url('<%= cl_image_path guide_picture, crop: :fill %>')">
+                    <div class="pic-guide-left-part guide-show-pic" id="card-pic-guide" style="background-image:url('<%= cl_image_path guide_picture, crop: :fill %>')">
                     </div>
                 </div>
                 <div class="guide-car-right-part">
