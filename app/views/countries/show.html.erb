@@ -12,10 +12,9 @@
               <% @guides.limit(3).each do |g | %>
               <div class="card-guide">
                 <div class="guide-car-left-part">
-                  <div class="pic-guide-left-part">
-                    <% guide_picture = g.user.facebook_picture_url || g.user.photo %>
-                    <%= image_tag guide_picture %>
-                  </div>
+                        <% guide_picture = g.user.facebook_picture_url || g.user.photo %>
+                    <div class="pic-guide-left-part guide-show-pic" style="background-image:url('<%= cl_image_path guide_picture, crop: :fill %>')">
+                    </div>
                 </div>
                 <div class="guide-car-right-part">
                   <div class="up-part-flexed" style="display: flex;justify-content: space-between;">

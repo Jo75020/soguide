@@ -6,7 +6,6 @@
                 <div class="guide-car-left-part">
                     <% guide_picture = @guide.user.facebook_picture_url || @guide.user.photo %>
                     <div class="pic-guide-left-part guide-show-pic" style="background-image:url('<%= cl_image_path guide_picture, crop: :fill %>')">
-
                     </div>
                 </div>
                 <div class="guide-car-right-part" style="border-bottom: 1px solid rgba(0,0,0,0.08);">

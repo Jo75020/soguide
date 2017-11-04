@@ -1,6 +1,7 @@
 ActiveAdmin.register Country do
     permit_params :name, :description, :address, :full_description, :best_period, :country, photos: []
 
+
   index do
     selectable_column
     column :name
