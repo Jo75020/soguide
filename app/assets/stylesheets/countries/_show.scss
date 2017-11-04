@@ -122,7 +122,9 @@
 }
 
 
-
+.card-link a {
+  color:white;
+}
 
 .menu-index-up {
     font-size: 18px !important;
@@ -189,8 +191,13 @@
     margin-top: 20px;
     display: flex;
     transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+    background: white;
 }
 
+.card-guide a {
+    text-decoration: none;
+    color: black;
+}
 
 .card-guide-show {
     margin-top: 20px;
@@ -199,7 +206,7 @@
 }
 
 .card-guide:hover {
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.17), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 .breadcrumb {
@@ -265,10 +272,11 @@
 
 .mini-picto {
     height: 40px;
+    margin-right: 7px;
 }
 
 .guide-car-right-part {
-    padding: 5px 5px 10px 25px;
+    padding: 3%;
     width: 100%;
 }
 
@@ -318,7 +326,7 @@
 }
 
 
-.guide-show-pic  {
+.guide-show-pic {
     height: 100%;
     background-size: cover !important;
     background: no-repeat center center;
@@ -328,7 +336,7 @@
     background-size: cover;
 }
 
-.guide-show-pic-countries  {
+.guide-show-pic-countries {
     height: 100%;
     background-size: cover !important;
     background: no-repeat center center;
@@ -350,13 +358,12 @@
 }
 
 
-.contact-form-guide-show {
-
-}
+.contact-form-guide-show {}
 
 .all-messages-guide-show {
     border: 1px solid rgba(0, 0, 0, 0.08);
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.08)
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.08);
+    background: white;
 }
 
 
@@ -380,11 +387,52 @@
 }
 
 #message_body {
-      width: 100%;
+    width: 100%;
     height: 110px;
     margin-bottom: 10px;
 }
 
 #pic-guide-left-part {
-max-height: 179px;
+    max-height: 179px;
+    background-position: 100% 0%;
+}
+
+.guide-car-wrapper {
+    width: 108%;
+}
+
+.country-page-left-btm-part {
+  color: black;
+}
+
+.up-part-flexed {
+margin-bottom: 2%;
+}
+
+.when-box {
+      background-size: cover !important;
+    background: no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 400px;
+
+
+}
+
+.left-part-card-guide {
+  width: 60%;
+}
+
+.flexed {
+  display: flex;
+}
+
+.slim {
+  width: 30%;
+}
+
+.slim-15 {
+  width: 15%;
 }

@@ -35,6 +35,6 @@ class GuidesController < ApplicationController
   end
 
   def guide_params
-    params.require(:guide).permit(:first_name, :last_name, :email, :mobile_phone, :phone, :regions, :guide_type, :experience, :structure, :structure_website, :license, :language, :soguide_description, :main_review, :soguide_url, :pays, :secondary_email, :pays_2, :facebook_profil_url, :facebook_profil_page, :gender)
+    params.require(:guide).permit(:first_name, :last_name, :email, :mobile_phone, :phone, :regions, :guide_type, :experience, :structure, :structure_website, :license, :language, :soguide_description, :main_review, :soguide_url, :pays, :secondary_email, :pays_2, :facebook_profil_url, :facebook_profil_page, :gender, :guide_type_second, :language_third, :language_fourth, :language_fifth, :guide_type_third)
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171103125353) do
+ActiveRecord::Schema.define(version: 20171104173352) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,8 +51,8 @@ ActiveRecord::Schema.define(version: 20171103125353) do
   end
 
   create_table "countries", force: :cascade do |t|
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.string   "name"
     t.string   "description"
     t.float    "latitude"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20171103125353) do
     t.string   "address"
     t.text     "full_description"
     t.text     "best_period"
+    t.string   "best_moment_picture"
   end
 
   create_table "guides", force: :cascade do |t|
@@ -85,6 +86,11 @@ ActiveRecord::Schema.define(version: 20171103125353) do
     t.string   "facebook_profil_page"
     t.string   "gender"
     t.string   "language_second"
+    t.string   "guide_type_second"
+    t.string   "language_third"
+    t.string   "language_fourth"
+    t.string   "language_fifth"
+    t.string   "guide_type_third"
     t.index ["user_id"], name: "index_guides_on_user_id", using: :btree
   end
 

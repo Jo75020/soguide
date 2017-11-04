@@ -1,18 +1,33 @@
 <div class="padded-little"></div>
+<div class="padded"></div>
 <div class="container">
     <div class="row">
-        <div class="col-md-12" style="border-right: 1px solid rgba(0,0,0,0.08);">
-            <div class="card-guide-show">
+        <div class="col-md-12">
+            <div class="card-guide-show" style="box-shadow: 0 3px 64px rgba(0, 0, 0, 0.16), 0 3px 60px rgba(0, 0, 0, 0.23);">
                 <div class="guide-car-left-part">
                     <% guide_picture = @guide.user.facebook_picture_url || @guide.user.photo %>
                     <div class="pic-guide-left-part guide-show-pic" style="background-image:url('<%= cl_image_path guide_picture, crop: :fill %>')">
                     </div>
                 </div>
-                <div class="guide-car-right-part" style="border-bottom: 1px solid rgba(0,0,0,0.08);">
+                <div class="guide-car-right-part" style="border-bottom: 1px solid rgba(0,0,0,0.08);background: white;color: black;">
                     <div class="up-part-flexed" style="display: flex;justify-content: space-between;">
                         <div class="title-guide-right-part">
-                            <h3 style="margin:0px;font-weight: 500;"> <%= @guide.user.first_name.capitalize %> <%= @guide.user.last_name %> </h3>
+                            <h3 style="margin:0px;font-weight: 800;font-size: 34px;"> <%= @guide.user.first_name.capitalize %> <%= @guide.user.last_name %> </h3>
                         </div>
+                    </div>
+                  <div class="flexed">
+                    <div class="left-part-card-guide">
+                    <div class="region-guide-right-part" style="align-items:center;display: flex;justify-content: left;">
+                        <%= image_tag 'map.png', class:'picto-guide' %>
+                            <p style="font-size: 14px;"> <span style="color:#099c03;font-size: 16px;">Type de guide :</span>
+                              <%= @guide.guide_type %>
+                              <% if @guide.guide_type_second != nil %>
+                              / <%= @guide.guide_type_second %>
+                              <% end %>
+                              <% if @guide.guide_type_third != nil %>
+                              / <%= @guide.guide_type_third %>
+                              <% end %>
+                              </p>
                     </div>
                     <div class="region-guide-right-part" style="align-items:center;display: flex;justify-content: left;">
                         <%= image_tag 'map.png', class:'picto-guide' %>
@@ -28,6 +43,13 @@
                                             <% end %>
                             </p>
                     </div>
+                    </div>
+                    <div class="right-part-card-guide">
+                    <div class="region-guide-right-part" style="align-items:center;display: flex;justify-content: left;">
+                        <%= image_tag 'degree.png', class:'picto-guide' %>
+                            <p style="font-size: 14px;"> <span style="color:#099c03;font-size: 16px;">Expérience :</span>
+                                <%= @guide.experience %> ans</p>
+                    </div>
                     <div class="region-guide-right-part" style="align-items:center;display: flex;justify-content: left;">
                         <%= image_tag 'degree.png', class:'picto-guide' %>
                             <p style="font-size: 14px;"> <span style="color:#099c03;font-size: 16px;">License :</span>
@@ -38,17 +60,7 @@
                         <%= image_tag 'degree.png', class:'picto-guide' %>
                             <p style="font-size: 14px;"> <span style="color:#099c03;font-size: 16px;">Associés :</span> Incomming soon !</p>
                     </div>
-                    <div class="comment-guide-right-part">
-                        <% reviews = Review.where(guide_id: @guide.id) %>
-                            <% if reviews != [] %>
-                                <p style="margin: 0px;font-size: 14px;"> <span style="color:#099c03;font-size: 16px;font-weight: 500;"> <%= reviews.first.user.first_name %> <%= reviews.first.user.last_name %>, <%= reviews.first.created_at.strftime("%B %Y")  %> :</span> "
-                                    <%= reviews.first.content %>"
-                                </p>
-                                <% else %>
-                                    <p style="margin: 0px;font-size: 14px;"> <span style="color:#099c03"> Avis sur le guide :</span> Il n'y a aucun Avis sur ce guide pour l'instant ! N'hésitez pas à vous connecter pour laisser un avis si vous avez voyagé avec <span style="color:#099c03"> <%= @guide.user.first_name %> <%= @guide.user.last_name %> </span> </p>
-                                    <% end %>
                     </div>
-                    <div class="down-part-flexed" style="display: flex;justify-content: space-between;">
                     </div>
                 </div>
             </div>
@@ -56,7 +68,7 @@
     </div>
 </div>
 <div class="container">
-    <div class="row">
+    <div class="row" style="margin-bottom: 5%">
         <div class="col-md-6">
             <h3 style="color:#099c03;padding-left:2%; font-weight: 400;">Contacter ce guide !</h3>
             <div class="contact-form-guide-show">
@@ -64,12 +76,15 @@
               <%= f.text_field :body %>
               <%= hidden_field_tag :guide_id, @guide.id %>
               <div class="submit-button-right">
-              <%= f.submit 'Envoyer !', :class => 'submit-form-guide' %>
+              <%= f.submit 'Envoyer !', :class => 'btn-default slim' %>
               </div>
             <% end %>
             </div>
         </div>
-        <div class="col-md-6 guide-video-square" style="background-image:url('<%= cl_image_path @countries.first.photos.sample.path, crop: :fill %>');height: 250px;">
+        <div class="col-md-6">
+          <div class="guide-video-square">
+            <iframe width="555" height="290" src="https://www.youtube.com/embed/TPdZvFuR8Ew" frameborder="0" allowfullscreen></iframe>
+          </div>
         </div>
     </div>
 </div>
@@ -102,7 +117,7 @@
                 <p style="color: grey;font-size: 16px;">Si vous avez voyagé avec ce guide, vous pouvez déposer un avis et nous le publierons dans les jours suivants !</p>
                 <%= f.input :content, label: false, requiered: true %>
                 <div class="submit-button-right">
-                    <%= f.submit "Envoyer !", class: "btn-default" %>
+                    <%= f.submit "Envoyer !", class: "btn-default slim-15" %>
                         <% end %>
                         </div>
                         </div>

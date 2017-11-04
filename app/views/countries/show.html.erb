@@ -1,5 +1,5 @@
 <div class="padded-little"></div>
-<div class="banner-country" style="background-image:url('<%= cl_image_path @country.photos.first.path, crop: :fill %>')">
+<div class="banner-country" style="background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0,0,0,0.2)),url('<%= cl_image_path @country.photos.first.path, crop: :fill %>')">
     <div class="banner-content">
         <h1 class="title-contries"> <%= @country.name %> </h1>
     </div>
@@ -7,61 +7,80 @@
 <div class="container">
     <div class="row">
         <div class="padded"></div>
-        <div class="col-md-9">
+        <div class="col-md-8">
             <div class="guide-car-wrapper">
               <% @guides.limit(3).each do |g | %>
+
               <div class="card-guide">
+
                 <div class="guide-car-left-part">
                         <% guide_picture = g.user.facebook_picture_url || g.user.photo %>
                     <div class="pic-guide-left-part guide-show-pic-countries" id="card-pic-guide" style="background-image:url('<%= cl_image_path guide_picture, crop: :fill %>')">
                     </div>
                 </div>
+                <%= link_to guide_path(g) do %>
                 <div class="guide-car-right-part">
                   <div class="up-part-flexed" style="display: flex;justify-content: space-between;">
                   <div class="title-guide-right-part">
                   <h3 style="margin:0px;font-weight: 500;"> <%= g.user.first_name.capitalize %> <%= g.user.last_name %> </h3>
                   </div>
                   <div class="flag-guide-right-part">
-                  <p><%= image_tag "http://cdn2.iconfinder.com/data/icons/flags/flags/32/#{g.language}.png" %>
-                  <% if g.language_second.nil? != true  %>
+                  <%= image_tag "http://cdn2.iconfinder.com/data/icons/flags/flags/32/#{g.language}.png" %>
+                  <% if g.language_second.nil? != true %>
                   <%= image_tag "http://cdn2.iconfinder.com/data/icons/flags/flags/32/#{g.language_second}.png", alt: "" %>
                   <% end %>
-                  </p>
+                  <% if g.language_third.nil? != true %>
+                  <%= image_tag "http://cdn2.iconfinder.com/data/icons/flags/flags/32/#{g.language_third}.png", alt: "" %>
+                  <% end %>
+                  <% if g.language_fourth.nil? != true %>
+                  <%= image_tag "http://cdn2.iconfinder.com/data/icons/flags/flags/32/#{g.language_fourth}.png", alt: "" %>
+                  <% end %>
+                  <% if g.language_fifth.nil? != true  %>
+                  <%= image_tag "http://cdn2.iconfinder.com/data/icons/flags/flags/32/#{g.language_fifth}.png", alt: "" %>
+                  <% end %>
                   </div>
                   </div>
                   <div class="region-guide-right-part">
                   <p style="font-size: 14px;"> <span style="color:#099c03">Régions :</span> <%= g.regions %> principalement </p>
                   </div>
                   <div class="comment-guide-right-part">
-                    <% reviews = Review.where(guide_id: g.id) %>
-                    <% if reviews != [] %>
-                    <p style="margin: 0px;font-size: 14px;"> <span style="color:#099c03"> <%= reviews.first.user.first_name %> <%= reviews.first.user.last_name %>, <%= reviews.first.created_at.strftime("%B %Y")  %> :</span>
-                    <%= reviews.first.content %></p>
-                    <% else %>
-                    <p style="margin: 0px;font-size: 14px;"> <span style="color:#099c03"> Avis sur le guide :</span>
-                    Il n'y a aucun Avis sur ce guide pour l'instant ! N'hésitez pas à vous connecter pour laisser un avis si vous avez voyagé avec <span style="color:#099c03"> <%= g.user.first_name %> <%= g.user.last_name %> </span> </p>
-                    <% end %>
+                    <p style="font-size: 14px;"> <span style="color:#099c03"> D'après ses clients :</span>
+                          <%= g.soguide_description %>
+                    </p>
+
                   </div>
                   <div class="down-part-flexed" style="display: flex;justify-content: space-between;">
                   <span><%= image_tag "#{g.guide_type}.png", class:"mini-picto" %></span>
-                  <%= link_to "Plus d'infos", guide_path(g), class:"btn btn-default"%>
+                  <% if g.guide_type_second != nil  %>
+                  <span><%= image_tag "#{g.guide_type_second}.png", class:"mini-picto" %></span>
+                  <% end %>
+                  <% if g.guide_type_third != nil  %>
+                  <span><%= image_tag "#{g.guide_type_third}.png", class:"mini-picto" %></span>
+                  <% end %>
+                  <% end %>
                   </div>
                 </div>
               </div>
               <% end %>
             </div>
-            <div class="text-center">
-            <%= link_to "Charger plus de guides", root_path, class:"btn btn-default"%>
-            </div>
         </div>
-        <div class="col-md-3" style="display: flex;margin-top: 20px;height: 100vh;box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 -1px 6px rgba(0, 0, 0, 0.23);flex-direction: column;align-content: center;">
+        <div class="col-md-1"></div>
+        <div class="col-md-3" style="background: white;display: flex;margin-top: 20px;height: 100%;box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 -1px 6px rgba(0, 0, 0, 0.23);flex-direction: column;align-content: center;">
           <div class="description-up-right-part" style="padding:6%;display: flex;flex-direction: column;justify-content: space-between;">
-          <p style="font-size: 14px"> <%= @country.description %> </p>
+          <p style="font-size: 14px;color:black;"> <%= @country.description %> </p>
           <div class="padded" style="padding-bottom: 4%;"></div>
-          <button type="button" class="btn btn-default" id="go-down">En savoir plus</button>
+          <div style="display: flex;justify-content: center;">
+            <button type="button" class="btn-default" id="go-down">En savoir plus</button>
+          </div>
           </div>
           <div class="padded" style="padding-bottom: 5%"></div>
-          <div class="photo-up-right-part" style="width: 112%;margin-left: -15px;background-image:url('<%= cl_image_path @country.photos.second.path, height: 300, width: 400, crop: :fill %>')">
+          <div class="photo-up-right-part" style="width: 111.5%;margin-left: -15px;background-image:url('<%= cl_image_path @country.photos.second.path, height: 300, width: 400, crop: :fill %>')">
+          </div>
+          <% if @country.best_moment_picture.nil? %>
+          <div class="when-box" style="background-image:url('<%= asset_path("When_Afrique_du_Sud_1.png") %>')">
+          <% else %>
+          <div class="when-box" style="background-image:url('<%= cl_image_path @country.best_moment_picture %>')"">
+          <% end %>
 
           </div>
         </div>
@@ -72,7 +91,7 @@
 
 <div class="test" id="im-down"></div>
 <div class="padded-little"></div>
-<div class="container">
+<div class="container" style="width: 100%;">
   <div class="row">
     <div class="col-md-6 country-page-left-btm-part" style="    background-image: linear-gradient(-225deg, rgba(30, 30, 30, 0.53) 30%, rgba(46, 46, 46, 0.87) 80%);color: white;font-weight: 300;font-size: 15px;padding: 4%;height: 50vh;">
       <%= @country.full_description %>
