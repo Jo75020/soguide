@@ -328,6 +328,16 @@
     background-size: cover;
 }
 
+.guide-show-pic-countries  {
+    height: 200px;
+    background-size: cover !important;
+    background: no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
 .rounded {
     border-radius: 50%;
 }
