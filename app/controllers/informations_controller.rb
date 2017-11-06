@@ -65,7 +65,9 @@ before_filter :authorize_admin
                 user.save!
                 end
                 guide = Guide.new(mobile_phone: row[8], phone: row[9], regions: row[10], guide_type: row[11], experience: row[12], structure: row[13], structure_website: row[14], license: row[15], language: row[16], soguide_description: row[17], main_review: row[18], soguide_url: row[19], pays: row[20], secondary_email: row[21], pays_2: row[22], facebook_profil_url: row[23], facebook_profil_page: row[24], gender: row[25], language_second: row[26], guide_type_second: row[27], language_third: row[28], language_fourth: row[29], language_fifth: row[30], user_id: user.id )
-                unless Guide.all.include?(guide)
+                if Guide.all.include?(guide) == false
+                  guide.update(mobile_phone: row[8], phone: row[9], regions: row[10], guide_type: row[11], experience: row[12], structure: row[13], structure_website: row[14], license: row[15], language: row[16], soguide_description: row[17], main_review: row[18], soguide_url: row[19], pays: row[20], secondary_email: row[21], pays_2: row[22], facebook_profil_url: row[23], facebook_profil_page: row[24], gender: row[25], language_second: row[26], guide_type_second: row[27], language_third: row[28], language_fourth: row[29], language_fifth: row[30], user_id: user.id )
+                  else
                   guide.save!
                 end
             end
