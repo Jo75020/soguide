@@ -94,6 +94,7 @@
 <div class="container" style="width: 100%;">
   <div class="row">
     <div class="col-md-6 country-page-left-btm-part" style="    background-image: linear-gradient(-225deg, rgba(30, 30, 30, 0.53) 30%, rgba(46, 46, 46, 0.87) 80%);color: white;font-weight: 300;font-size: 15px;padding: 4%;height: 50vh;">
+      <h3 style="color:white;margin-top:-10px;">Un peu d'histoire et de culture !</h3>
       <%= @country.full_description %>
     </div>
     <div class="col-md-6 photo-btm-right-part" style="background-image:url('<%= cl_image_path @country.photos.third.path, crop: :fill %>')">
@@ -101,6 +102,7 @@
     <div class="col-md-6 photo-btm-right-part" style="background-image:url('<%= cl_image_path @country.photos.fourth.path, crop: :fill %>')">
     </div>
     <div class="col-md-6 country-page-left-btm-part" style="font-weight: 300;font-size: 15px;padding: 4%;height: 50vh;">
+      <h3 style="margin-top: -10px;">Les choses à voir et visiter !</h3>
       <%= @country.best_period %>
     </div>
   </div>
