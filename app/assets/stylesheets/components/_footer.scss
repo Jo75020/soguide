@@ -1,13 +1,12 @@
 .footer {
-  background: #242625;
+  background: $very_dark_gray;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100px;
   padding: 0px 50px;
   color: white;
   border-top: 1px solid rgba(0, 0, 0, 0.08);
-  color: black;
+  color: white;
 }
 .footer-links {
   display: flex;
@@ -33,4 +32,17 @@
   opacity: 0.6;
   text-decoration: none;
   padding: 0px 10px;
+}
+
+.footer a {
+  text-decoration: none;
+  color:white;
+}
+
+.footer-page-link {
+  list-style-type: none;
+    li {
+      font-size: 15px;
+    font-weight: 300;
+    }
 }

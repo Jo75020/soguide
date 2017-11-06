@@ -51,10 +51,10 @@
                   </div>
                   <div class="down-part-flexed" style="display: flex;justify-content: space-between;">
                   <span><%= image_tag "#{g.guide_type}.png", class:"mini-picto" %></span>
-                  <% if g.guide_type_second != nil  %>
+                  <% if (g.guide_type_second != "") && (g.guide_type_second.nil? == false)  %>
                   <span><%= image_tag "#{g.guide_type_second}.png", class:"mini-picto" %></span>
                   <% end %>
-                  <% if g.guide_type_third != nil  %>
+                  <% if (g.guide_type_third != "") && (g.guide_type_third.nil? == false)  %>
                   <span><%= image_tag "#{g.guide_type_third}.png", class:"mini-picto" %></span>
                   <% end %>
                   <% end %>

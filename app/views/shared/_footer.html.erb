@@ -1,14 +1,30 @@
 <div class="footer">
-
-<div class="footer-left">
-<p>© 2016 So Guide</p>
-</div>
-
-  <div class="footer-links">
-    <a href="#"><i class="fa fa-github"></i></a>
-    <a href="#"><i class="fa fa-instagram"></i></a>
-    <a href="#"><i class="fa fa-facebook"></i></a>
-    <a href="#"><i class="fa fa-twitter"></i></a>
-    <a href="#"><i class="fa fa-linkedin"></i></a>
-  </div>
+    <div class="left-footer-part" style="display: flex;flex-direction: column;">
+        <span style="font-size: 50px;font-weight: 800;">SOGUIDE</span>
+        <p>IN GUIDES WE TRUST</p>
+        <p style="font-size: 14px">12 rue du Cherche midi</br>75006 PARIS</br>Contact@soguide.com</p>
+        <p style="font-size: 12px">2017 - SoGuide - Tous droits réservés</p>
+    </div>
+    <div class="footer-mid" style="width: 55%;">
+        <ul class="footer-page-link">
+          <li> <%= link_to "Acceuil", root_path %> </li>
+          <li> <%= link_to "Destinations", countries_path %> </li>
+          <li> <%= link_to "Conseil", pages_a_savoir_path %> </li>
+          <li> <%= link_to "A propos", pages_a_savoir_path %> </li>
+          <li> <%= link_to "Contact", pages_a_savoir_path %> </li>
+          <li> <%= link_to "Connexion", pages_a_savoir_path %> </li>
+        </ul>
+    </div>
+    <div class="footer-links" style="display: flex;flex-direction: column;">
+        <div class="footer-right-in">
+            <p>Suivez nous :</p>
+        </div>
+        <div class="footer-right-in-r">
+            <a href="#"><i class="fa fa-github"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+        </div>
+    </div>
 </div>
