@@ -59,8 +59,8 @@ before_filter :authorize_admin
         csv_new = CSV.new(csv)
         CSV.parse(csv, csv_options) do |row|
                user = User.new(email: row[0], password: row[1], first_name: row[2], last_name: row[3], year_of_birth: row[4], postal: row[5], inscription_reason: row[6], facebook_picture_url: row[7])
-               if User.all.include?(user)
-                User.update(email: row[0], password: row[1], first_name: row[2], last_name: row[3], year_of_birth: row[4], postal: row[5], inscription_reason: row[6], facebook_picture_url: row[7])
+               if User.all.include?(user) == false
+                user.update(email: row[0], password: row[1], first_name: row[2], last_name: row[3], year_of_birth: row[4], postal: row[5], inscription_reason: row[6], facebook_picture_url: row[7])
                else
                 user.save!
                 end
