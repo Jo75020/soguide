@@ -127,3 +127,10 @@ a.fa {
   text-decoration: none;
   color: rgba(0, 0, 0, 0.68);
 }
+
+.btn-default:focus {
+  text-decoration: none;
+  color: white;
+  opacity: 0.9;
+  background: #005300;
+}
