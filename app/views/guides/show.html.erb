@@ -125,10 +125,10 @@
                                 <div class="col-md-12">
                                     <h3 style="color:#099c03;padding:2%; font-weight: 400;">Vous souhaitez contacter d'autres guides en <%= @guide.pays %></h3>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <% @guides.each do |guide| %>
                                     <% unless guide == @guide %>
-                                        <div class="col-md-6 card-wrapper">
+                                        <div class="col-md-3 card-wrapper">
                                             <% avatar_url = guide.user.facebook_picture_url || guide.user.photo%>
                                                 <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
            url('<%= cl_image_path avatar_url, height: 300, width: 400, crop: :fill %>')">
