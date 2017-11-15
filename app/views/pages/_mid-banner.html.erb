@@ -7,6 +7,7 @@
         <div class="active item">
           <div class="carousel-body">
             <span>Ils aiment nos guides</span>
+            <% unless @reviews == [] %>
              <p><%= @reviews.first.content %></p>
              <p  style="font-size: 14px;"><span style="font-weight: bold; font-size: 14px;"><%= @reviews.first.user.first_name %> <%= @reviews.first.user.last_name %></span>, <%= @reviews.first.guide.pays %> - <%= @reviews.first.created_at.strftime("%B %Y") %> </p>
           </div>
@@ -25,6 +26,7 @@
              <p  style="font-size: 14px;"><span style="font-weight: bold; font-size: 14px;"><%= @reviews.third.user.first_name %> <%= @reviews.third.user.last_name %></span>, <%= @reviews.third.guide.pays %> - <%= @reviews.third.created_at.strftime("%B %Y") %> </p>
           </div>
         </div>
+        <% end %>
     </div>
     <!-- Carousel nav -->
 </div>
