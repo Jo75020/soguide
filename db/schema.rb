@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171104173352) do
+ActiveRecord::Schema.define(version: 20171125155714) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 20171104173352) do
     t.string   "language_fourth"
     t.string   "language_fifth"
     t.string   "guide_type_third"
+    t.string   "partners"
     t.index ["user_id"], name: "index_guides_on_user_id", using: :btree
   end
 

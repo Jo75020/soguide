@@ -105,6 +105,8 @@ before_filter :authorize_admin
                 language_third: row[28],
                 language_fourth: row[29],
                 language_fifth: row[30],
+                guide_type_third: row[31],
+                partners: row[32],
                 user_id: new_user.id )
 
 
@@ -136,7 +138,8 @@ before_filter :authorize_admin
                   guide_type_second: row[27],
                   language_third: row[28],
                   language_fourth: row[29],
-                  language_fifth: row[30],)
+                  guide_type_third: row[30],
+                  partners: row[31],)
                 end
             end
             redirect_to  informations_import_guides_path, notice: 'Votre fichier à bien été envoyer'

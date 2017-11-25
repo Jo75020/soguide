@@ -7,7 +7,7 @@ class GuideMailer < ApplicationMailer
     n_message.mark_as_read! for: user
     mail(
       to:       @guide.user.email,
-      subject:  "Vous avez une demande en attente!",
+      subject:  "Nouveau client SoGuide !",
       body: message
     )
   end
