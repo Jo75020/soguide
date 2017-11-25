@@ -67,7 +67,7 @@ before_filter :authorize_admin
                 postal: row[5],
                 inscription_reason: row[6],
                 facebook_picture_url: row[7])
-               unless (User.where(:email => new_user.email).present?)
+               if User.where(:email => new_user.email) == nil
                 new_user.save!
                else
                 user = User.where(:email => new_user.email)
@@ -109,7 +109,7 @@ before_filter :authorize_admin
                 partners: row[32],
                 user_id: new_user.id )
 
-
+                unless new_user.nil? == false
                 unless (Guide.where(:user_id => (new_user.id) || (user.first.id)).present?)
                   guide.save!
                   else
@@ -141,6 +141,7 @@ before_filter :authorize_admin
                   guide_type_third: row[30],
                   partners: row[31],)
                 end
+              end
             end
             redirect_to  informations_import_guides_path, notice: 'Votre fichier à bien été envoyer'
     end
