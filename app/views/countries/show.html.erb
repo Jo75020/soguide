@@ -25,23 +25,23 @@
                   <h3 style="margin:0px;font-weight: 500;"> <%= g.user.first_name.capitalize %> <%= g.user.last_name %> </h3>
                   </div>
                   <div class="flag-guide-right-part">
-                  <%= image_tag "http://cdn2.iconfinder.com/data/icons/flags/flags/32/#{g.language}.png" %>
+                  <%= cl_image_tag "http://res.cloudinary.com/dgq8rxb4v/image/upload/v1511622088/Flag_#{g.language}.png", alt: "", class:"img-flag" %>
                   <% if g.language_second.nil? != true %>
-                  <%= image_tag "http://cdn2.iconfinder.com/data/icons/flags/flags/32/#{g.language_second}.png", alt: "" %>
+                  <%= cl_image_tag "http://res.cloudinary.com/dgq8rxb4v/image/upload/v1511622088/Flag_#{g.language_second}.png", alt: "", class:"img-flag" %>
                   <% end %>
                   <% if g.language_third.nil? != true %>
-                  <%= image_tag "http://cdn2.iconfinder.com/data/icons/flags/flags/32/#{g.language_third}.png", alt: "" %>
+                  <%= cl_image_tag "http://res.cloudinary.com/dgq8rxb4v/image/upload/v1511622088/Flag_#{g.language_third}.png", alt: "", class:"img-flag" %>
                   <% end %>
                   <% if g.language_fourth.nil? != true %>
-                  <%= image_tag "http://cdn2.iconfinder.com/data/icons/flags/flags/32/#{g.language_fourth}.png", alt: "" %>
+                  <%= cl_image_tag "http://res.cloudinary.com/dgq8rxb4v/image/upload/v1511622088/Flag_#{g.language_fourth}.png", alt: "", class:"img-flag" %>
                   <% end %>
                   <% if g.language_fifth.nil? != true  %>
-                  <%= image_tag "http://cdn2.iconfinder.com/data/icons/flags/flags/32/#{g.language_fifth}.png", alt: "" %>
+                  <%= cl_image_tag "http://res.cloudinary.com/dgq8rxb4v/image/upload/v1511622088/Flag_#{g.language_fifth}.png", alt: "", class:"img-flag" %>
                   <% end %>
                   </div>
                   </div>
                   <div class="region-guide-right-part">
-                  <p style="font-size: 14px;"> <span style="color:#099c03">Régions :</span> <%= g.regions %> principalement </p>
+                  <p style="font-size: 14px;"> <span style="color:#099c03">Régions :</span> <%= g.regions %></p>
                   </div>
                   <div class="comment-guide-right-part">
                     <p style="font-size: 14px;"> <span style="color:#099c03"> D'après ses clients :</span>
@@ -93,16 +93,16 @@
 <div class="padded-little"></div>
 <div class="container" style="width: 100%;">
   <div class="row">
-    <div class="col-md-6 country-page-left-btm-part" style="    background-image: linear-gradient(-225deg, rgba(30, 30, 30, 0.53) 30%, rgba(46, 46, 46, 0.87) 80%);color: white;font-weight: 300;font-size: 15px;padding: 4%;height: 50vh;">
-      <h3 style="color:white;margin-top:-10px;">Un peu d'histoire et de culture !</h3>
-      <%= @country.full_description %>
+    <div class="col-md-6 country-page-left-btm-part" style="background: linear-gradient(-225deg, rgba(30, 30, 30, 0.53) 30%, rgba(46, 46, 46, 0.87) 80%);color: white;font-weight: 300;font-size: 15px;">
+      <h3 style="color:white;">Un peu d'histoire et de culture !</h3>
+      <p><%= @country.full_description %></p>
     </div>
     <div class="col-md-6 photo-btm-right-part" style="background-image:url('<%= cl_image_path @country.photos.third.path, crop: :fill %>')">
     </div>
     <div class="col-md-6 photo-btm-right-part" style="background-image:url('<%= cl_image_path @country.photos.fourth.path, crop: :fill %>')">
     </div>
-    <div class="col-md-6 country-page-left-btm-part" style="font-weight: 300;font-size: 15px;padding: 4%;height: 50vh;">
-      <h3 style="margin-top: -10px;">Les choses à voir et visiter !</h3>
+    <div class="col-md-6 country-page-left-btm-part" style="font-weight: 300;font-size: 15px;">
+      <h3 style="">Les choses à voir et visiter !</h3>
       <%= @country.best_period %>
     </div>
   </div>

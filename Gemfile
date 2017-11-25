@@ -32,7 +32,7 @@ end
 gem "geocoder"
 
 
-
+gem 'friendly_id', '~> 5.1.0'
 gem 'formtastic', '~> 3.0'
 gem 'attachinary', github: 'assembler/attachinary'
 gem 'jquery-fileupload-rails'

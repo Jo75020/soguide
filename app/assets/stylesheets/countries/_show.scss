@@ -291,14 +291,18 @@
 }
 
 .photo-btm-right-part {
-    height: 50vh;
     /* if you have a 70px navbar => height: calc(100vh - 70px); */
-    background-size: cover !important;
-    background: no-repeat center center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+  height: 50vh;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  background: no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 
@@ -400,6 +404,22 @@
 
 .country-page-left-btm-part {
   color: black;
+  height: 50vh;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  background: no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.country-page-left-btm-part p {
+  width: 85%;
 }
 
 .up-part-flexed {
@@ -407,7 +427,7 @@ margin-bottom: 2%;
 }
 
 .when-box {
-      background-size: cover !important;
+    background-size: cover !important;
     background: no-repeat center center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -432,4 +452,8 @@ margin-bottom: 2%;
 
 .slim-15 {
   width: 15%;
+}
+
+.flag-guide-right-part img {
+  height: 20px;
 }
