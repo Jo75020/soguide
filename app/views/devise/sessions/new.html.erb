@@ -2,7 +2,6 @@
 <div class="padded"></div>
 <div class="padded"></div>
 <div class="padded"></div>
-<%= @url %>
 <div class="container">
     <div class="row" style="padding: 5%;">
         <div class="sign-form">
@@ -17,7 +16,6 @@
                             <%= f.input :email, required: false, autofocus: true, label: false %>
                                 <%= f.label "Mot de passe", class:"label-sign"  %>
                                     <%= f.input :password, required: false, label: false %>
-                                      <% hidden_field_tag("url", @url) %>
                     </div>
                     <div class="form-actions">
                         <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
@@ -35,7 +33,7 @@
                                 <p class="btn btn-default" style="background: #034e00;font-weight: 300;border: #034e00;font-size:16px;"><%= link_to "Se créer un compte", new_registration_path(resource_name)%></p>
                                 <p class="btn btn-default" style="background: #4367b1;font-weight: 300;border: #4367b1;font-size:16px;"><%- if devise_mapping.omniauthable? %>
                                       <%- resource_class.omniauth_providers.each do |provider| %>
-                                        <%= link_to "Se connecter avec #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider, :url => @url) %><br />
+                                        <%= link_to "Se connecter avec #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %><br />
                                       <% end -%>
                                     <% end -%></p>
                                     <% end -%>

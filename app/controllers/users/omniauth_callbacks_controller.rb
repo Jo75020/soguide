@@ -1,10 +1,4 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  before_action :get_last_url
-
-  def get_last_url
-
-  end
-
 
   def facebook
     user = User.find_for_facebook_oauth(request.env['omniauth.auth'])
