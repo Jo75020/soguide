@@ -46,7 +46,7 @@ before_filter :authorize_admin
   end # def
 
 
-    def import_xlsx
+def import_xlsx
       if params[:xlsx].nil?
         render :import_loc
       else
@@ -67,13 +67,10 @@ before_filter :authorize_admin
                 postal: row[5],
                 inscription_reason: row[6],
                 facebook_picture_url: row[7])
-               unless new_user.email.nil?
-               new_email = new_user.email.gsub(' ','').downcase
-
-               unless (User.where(:email => new_email || new_email.downcase || new_email.capitalize).present?)
+               if User.where(:email => new_user.email) == []
                 new_user.save!
                else
-                user = User.where(:email => new_email.capitalize || new_email.downcase || new_email)
+                user = User.where(:email => new_user.email)
                 user.update(
                 email: row[0],
                 password: row[1],
@@ -84,7 +81,6 @@ before_filter :authorize_admin
                 inscription_reason: row[6],
                 facebook_picture_url: row[7])
                 end
-                new_user = User.last
                 guide = Guide.new(
                 mobile_phone: row[8],
                 phone: row[9],
@@ -113,11 +109,12 @@ before_filter :authorize_admin
                 partners: row[32],
                 user_id: new_user.id )
 
-                user = User.where(email: new_email || new_email.downcase || new_email.capitalize)
-                unless (Guide.where(:user_id => (user.first.id) ).present?)
+                unless new_user.nil? == false
+                unless (Guide.where(:user_id => (new_user.id) || (user.first.id)).present?)
                   guide.save!
                   else
-                  guides = Guide.where(:user_id => (user.first.id) )
+                  guides = Guide.where(:user_id => new_user.id || (user.first.id))
+                  guide = guides.first
                   guide.update(
                   mobile_phone: row[8],
                   phone: row[9],
@@ -144,7 +141,7 @@ before_filter :authorize_admin
                   guide_type_third: row[30],
                   partners: row[31],)
                 end
-            end
+              end
             end
             redirect_to  informations_import_guides_path, notice: 'Votre fichier à bien été envoyer'
     end

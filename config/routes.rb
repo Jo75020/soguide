@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  ActiveAdmin.routes(self)
+ActiveAdmin.routes(self)
 mount Attachinary::Engine => "/attachinary"
   root to: 'pages#home'
   devise_for :users,
-    controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+    controllers: { omniauth_callbacks: 'users/omniauth_callbacks',
+                    new: 'users/new' }
   resources :countries
   resources :guides
   resources :reviews, only: [ :show, :edit, :update, :destroy ]
@@ -18,8 +19,6 @@ mount Attachinary::Engine => "/attachinary"
   get 'check', to: 'guides#check_in'
   post "check" => 'guides#check_in'
 
-
-
   get 'mark_as_read', to: 'conversations#mark_as_read_own'
     resources :guides do
     resources :reviews, only: [ :index, :new, :create ]
@@ -32,8 +31,6 @@ mount Attachinary::Engine => "/attachinary"
   get "/informations/import_guides" => "informations#import_guides"
   post "informations/import_csv" => "informations#import_csv"
   post "informations/import_xlsx" => "informations#import_xlsx"
-
-
 
 
 

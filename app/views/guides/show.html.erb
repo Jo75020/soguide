@@ -37,11 +37,20 @@
                     <div class="region-guide-right-part" style="align-items:center;display: flex;justify-content: left;">
                         <%= image_tag 'library.png', class:'picto-guide' %>
                             <p style="font-size: 14px;"> <span style="color:#099c03;font-size: 16px;">Langues :</span>
-                                <%= image_tag "http://cdn2.iconfinder.com/data/icons/flags/flags/32/#{@guide.language}.png", class:'flag-marged' %>
-                                    <% if @guide.language_second.nil? != true  %>
-                                        <%= image_tag "http://cdn2.iconfinder.com/data/icons/flags/flags/32/#{@guide.language_second}.png", alt: "" %>
-                                            <% end %>
-                            </p>
+                          <%= cl_image_tag "http://res.cloudinary.com/dgq8rxb4v/image/upload/v1511622088/Flag_#{g.language}.png", alt: "", class:"img-flag" %>
+                          <% if g.language_second.nil? != true %>
+                          <%= cl_image_tag "http://res.cloudinary.com/dgq8rxb4v/image/upload/v1511622088/Flag_#{g.language_second}.png", alt: "", class:"img-flag" %>
+                          <% end %>
+                          <% if g.language_third.nil? != true %>
+                          <%= cl_image_tag "http://res.cloudinary.com/dgq8rxb4v/image/upload/v1511622088/Flag_#{g.language_third}.png", alt: "", class:"img-flag" %>
+                          <% end %>
+                          <% if g.language_fourth.nil? != true %>
+                          <%= cl_image_tag "http://res.cloudinary.com/dgq8rxb4v/image/upload/v1511622088/Flag_#{g.language_fourth}.png", alt: "", class:"img-flag" %>
+                          <% end %>
+                          <% if g.language_fifth.nil? != true  %>
+                          <%= cl_image_tag "http://res.cloudinary.com/dgq8rxb4v/image/upload/v1511622088/Flag_#{g.language_fifth}.png", alt: "", class:"img-flag" %>
+                          <% end %>
+                          </p>
                     </div>
                     </div>
                     <div class="right-part-card-guide">
@@ -71,15 +80,22 @@
     <div class="row" style="margin-bottom: 5%">
         <div class="col-md-6">
             <h3 style="color:#099c03;padding-left:2%; font-weight: 400;">Contacter ce guide !</h3>
+            <% if current_user %>
             <div class="contact-form-guide-show">
-            <%= form_for (@message), :url => url_for(:controller => 'guides', :action => 'check_in') do |f| %>
-              <%= f.text_field :body %>
+            <%= simple_form_for (@message), :url => url_for(:controller => 'guides', :action => 'check_in') do |f| %>
+              <%= f.input :body, label: false, :class => "tinymce", :rows => 40, :cols => 120  %>
               <%= hidden_field_tag :guide_id, @guide.id %>
               <div class="submit-button-right">
               <%= f.submit 'Envoyer !', :class => 'btn-default slim' %>
               </div>
-            <% end %>
+              <% end %>
             </div>
+              <% else %>
+              <div class="contact-form-guide-show">
+                <p>Veuillez vous connecter pour contacter ce guide !</p>
+                <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+              </div>
+            <% end %>
         </div>
         <div class="col-md-6">
           <div class="guide-video-square">
@@ -101,9 +117,8 @@
                                     <div class="message-body">
                                         <p> <span class="green" style="font-weight: 500;"><%= review.user.first_name %> <%= review.user.last_name %>,</span>
                                             <%= review.created_at.strftime("%m/%d/%y") %> : </p>
-                                        <p style="color:black;">
-                                            "
-                                            <%= review.content %> "
+                                        <p style="color:black;white-space: pre-line;">
+                                            <%= review.content %>
                                         </p>
                                     </div>
                         </div>
@@ -115,7 +130,7 @@
             <%= f.label "Donnez votre avis !", class:"sub-title-guide" %>
             <div class="all-messages-guide-show" style="padding: 2%;">
                 <p style="color: grey;font-size: 16px;">Si vous avez voyagé avec ce guide, vous pouvez déposer un avis et nous le publierons dans les jours suivants !</p>
-                <%= f.input :content, label: false, requiered: true %>
+                <%= f.input :content, label: false, requiered: true%>
                 <div class="submit-button-right">
                     <%= f.submit "Envoyer !", class: "btn-default slim-15" %>
                         <% end %>

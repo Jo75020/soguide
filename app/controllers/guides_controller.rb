@@ -1,4 +1,5 @@
 class GuidesController < ApplicationController
+skip_before_action :authenticate_user!, only: [:show, :index]
 
   def show
   @message = Message.new

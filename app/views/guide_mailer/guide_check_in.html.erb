@@ -1,10 +1,10 @@
-<p>Hi <%= @guide.user.first_name %> <%= @guide.user.last_name %>,</p>
+<p>Bonjour <%= @guide.user.first_name %> <%= @guide.user.last_name %>,</p>
 
-<p>Vous avez une demande en attente :) </p>
+<p>Vous avez recu un nouveau message de <span style="font-weight:600;"><%= @user.first_name %> <%= @user.last_name %></span>  sur SoGuide. Vous pouvez lui répondre sur son addresse mail : <%= mail_to @user.email %>.</p>
+<p>You have a new message from <span style="font-weight:600;"><%= @user.first_name %> <%= @user.last_name %></span> on SoGuide. You can directly anwser on the following email : <%= mail_to @user.email %>. </p>
 
+--------------------------- </br>
+<span style="font-weight: 600;">Message</span></br>
+--------------------------- </br>
 
-
-
-<%= link_to "Cliquer ici pour acceder au message", conversations_url(@guide), class:"btn-primary green"%>
-
-<p>A bientot!</p>
+<p><%= @message %></p>
