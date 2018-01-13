@@ -37,18 +37,18 @@
                     <div class="region-guide-right-part" style="align-items:center;display: flex;justify-content: left;">
                         <%= image_tag 'library.png', class:'picto-guide' %>
                             <p style="font-size: 14px;"> <span style="color:#099c03;font-size: 16px;">Langues :</span>
-                          <%= cl_image_tag "http://res.cloudinary.com/dgq8rxb4v/image/upload/v1511622088/Flag_#{g.language}.png", alt: "", class:"img-flag" %>
-                          <% if g.language_second.nil? != true %>
-                          <%= cl_image_tag "http://res.cloudinary.com/dgq8rxb4v/image/upload/v1511622088/Flag_#{g.language_second}.png", alt: "", class:"img-flag" %>
+                          <%= cl_image_tag "http://res.cloudinary.com/dgq8rxb4v/image/upload/v1511622088/Flag_#{@guide.language}.png", alt: "", class:"img-flag" %>
+                          <% if @guide.language_second.nil? != true %>
+                          <%= cl_image_tag "http://res.cloudinary.com/dgq8rxb4v/image/upload/v1511622088/Flag_#{@guide.language_second}.png", alt: "", class:"img-flag" %>
                           <% end %>
-                          <% if g.language_third.nil? != true %>
-                          <%= cl_image_tag "http://res.cloudinary.com/dgq8rxb4v/image/upload/v1511622088/Flag_#{g.language_third}.png", alt: "", class:"img-flag" %>
+                          <% if @guide.language_third.nil? != true %>
+                          <%= cl_image_tag "http://res.cloudinary.com/dgq8rxb4v/image/upload/v1511622088/Flag_#{@guide.language_third}.png", alt: "", class:"img-flag" %>
                           <% end %>
-                          <% if g.language_fourth.nil? != true %>
-                          <%= cl_image_tag "http://res.cloudinary.com/dgq8rxb4v/image/upload/v1511622088/Flag_#{g.language_fourth}.png", alt: "", class:"img-flag" %>
+                          <% if @guide.language_fourth.nil? != true %>
+                          <%= cl_image_tag "http://res.cloudinary.com/dgq8rxb4v/image/upload/v1511622088/Flag_#{@guide.language_fourth}.png", alt: "", class:"img-flag" %>
                           <% end %>
-                          <% if g.language_fifth.nil? != true  %>
-                          <%= cl_image_tag "http://res.cloudinary.com/dgq8rxb4v/image/upload/v1511622088/Flag_#{g.language_fifth}.png", alt: "", class:"img-flag" %>
+                          <% if @guide.language_fifth.nil? != true  %>
+                          <%= cl_image_tag "http://res.cloudinary.com/dgq8rxb4v/image/upload/v1511622088/Flag_#{@guide.language_fifth}.png", alt: "", class:"img-flag" %>
                           <% end %>
                           </p>
                     </div>
