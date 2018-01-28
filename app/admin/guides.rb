@@ -38,4 +38,8 @@ ActiveAdmin.register Guide do
     end
     f.actions
   end
+
+
+
+
 end
