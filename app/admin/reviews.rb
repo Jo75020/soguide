@@ -9,4 +9,7 @@ permit_params :content, :user_id, :guide_id, :checked
     end
     f.actions
   end
+
+
+
 end
