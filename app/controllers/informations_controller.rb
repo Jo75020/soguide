@@ -23,32 +23,9 @@ before_filter :authorize_admin
   end
 
 
-    def import_csv
-      if params[:file].nil?
-        render :import_guides
-      else
-        headers_true = ["email","password","prenom","nom","annee de naissance","code postal","raison dinscription","photo","numero mobile","numero fixe","regions","type de guide","experience","structure","site web","license","langues","description","main review","url","pays", "email secondaire", "pays 2", "facebook_profil_url", "facebook_profil_page", "genre"]
-        csv_options = { col_sep: ',', headers: :first_row }
-        filepath = params[:file].path
-        headers = CSV.read(filepath, headers: true).headers
-        if headers == headers_true
-            CSV.foreach(filepath, csv_options) do |row|
-                user = User.new(email: row[0], password: row[1], first_name: row[2], last_name: row[3], year_of_birth: row[4], postal: row[5], inscription_reason: row[6], facebook_picture_url: row[7])
-                user.save!
-                guide = Guide.new(mobile_phone: row[8], phone: row[9], regions: row[10], guide_type: row[11], experience: row[12], structure: row[13], structure_website: row[14], license: row[15], language: row[16], soguide_description: row[17], main_review: row[18], soguide_url: row[19], pays: row[20], secondary_email: row[21], pays_2: row[22], facebook_profil_url: row[23], facebook_profil_page: row[24], gender: row[25], user_id: user.id )
-                guide.save!
-            end
-            redirect_to  informations_import_guides_path, notice: 'Votre fichier à bien été envoyer'
-        else
-            redirect_to informations_import_guides_path, alert: 'Votre fichier est incorrect, merci de le corriger et le renvoyer'
-        end
-       end
-  end # def
-
-
-def import_xlsx
+def import_guides_xlsx
       if params[:xlsx].nil?
-        render :import_loc
+        render :import_guides_xlsx
       else
         filepath = params[:xlsx].path
         xlsx = Roo::Spreadsheet.open(filepath)
@@ -145,5 +122,37 @@ def import_xlsx
             end
             redirect_to  informations_import_guides_path, notice: 'Votre fichier à bien été envoyer'
     end
+end
+
+def import_reviews_xlsx
+  if params[:xlsx].nil?
+    render :import_guides_xlsx
+  else
+    filepath = params[:xlsx].path
+    xlsx = Roo::Spreadsheet.open(filepath)
+    xlsx = Roo::Excelx.new(filepath)
+    xlsx.default_sheet = xlsx.sheets.first
+    csv = xlsx.to_csv
+    csv_options = { col_sep: ',', headers: :first_row, quote_char: '"' }
+    csv_new = CSV.new(csv)
+    CSV.parse(csv, csv_options) do |row|
+      new_user = User.new
+      new_user.email = row[0]
+      new_user.first_name = row[1]
+      new_user.last_name = row[2]
+      new_user.password = row[3]
+      new_user.save!
+      review = Review.new
+      review.fake_date = row[4]
+      review.content = row[5]
+      review.checked = true
+      guide = User.find_by(email: row[6])
+      review.guide_id = guide.id
+      review.user_id = new_user.id
+      review.save!
+    end
+    render :back
   end
+end
+
 end

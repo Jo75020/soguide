@@ -28,10 +28,7 @@ mount Attachinary::Engine => "/attachinary"
   get 'pages/add_country'
   get "informations/download_csv"
   get "informations/download_xlsx"
-  get "/informations/import_guides" => "informations#import_guides"
-  post "informations/import_csv" => "informations#import_csv"
-  post "informations/import_xlsx" => "informations#import_xlsx"
-
-
-
+  get "/informations/import_soguide" => "informations#import_soguide"
+  post "informations/import_guides_xlsx" => "informations#import_guides_xlsx"
+  post "informations/import_reviews_xlsx" => "informations#import_reviews_xlsx"
 end

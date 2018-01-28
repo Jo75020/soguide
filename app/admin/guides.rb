@@ -1,6 +1,12 @@
 ActiveAdmin.register Guide do
     permit_params :first_name, :last_name, :email, :mobile_phone, :phone, :regions, :guide_type, :experience, :structure, :structure_website, :license, :language, :soguide_description, :main_review, :soguide_url, :pays, :user_id, :language_second, :guide_type_second, :language_third, :language_fourth, :language_fifth, :guide_type_third
 
+
+
+
+
+
+
   index do
     selectable_column
     column("Prénom"){|u| u.user.first_name }

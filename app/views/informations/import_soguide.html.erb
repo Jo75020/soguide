@@ -1,0 +1,21 @@
+<div class="padded-little"></div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      IMPORT GUIDES
+    <%= form_tag('import_guides_xlsx', multipart: true, class: 'form-input-file') do %>
+      <%= file_field_tag :xlsx, accept: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' %>
+      <i class="fa fa-arrow-up" style="font-size: 49px;"></i>
+      <%= submit_tag "Importer mes guides en xlsx", class: 'submit-upload-file' %>
+    <% end %>
+    </div>
+    <div class="col-md-6">
+      IMPORT REVIEWS
+    <%= form_tag('import_reviews_xlsx', multipart: true, class: 'form-input-file') do %>
+      <%= file_field_tag :xlsx, accept: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' %>
+      <i class="fa fa-arrow-up" style="font-size: 49px;"></i>
+      <%= submit_tag "Importer mes reviews en xlsx", class: 'submit-upload-file' %>
+    <% end %>
+    </div>
+  </div>
+</div>
