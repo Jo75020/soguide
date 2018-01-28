@@ -116,7 +116,7 @@
                                 <%= image_tag avatar_url, class: "avatar-small rounded"%>
                                     <div class="message-body">
                                         <p> <span class="green" style="font-weight: 500;"><%= review.user.first_name %> <%= review.user.last_name %>,</span>
-                                            <%= review.created_at.strftime("%m/%d/%y") %> : </p>
+                                            <%= review.fake_date %> : </p>
                                         <p style="color:black;white-space: pre-line;">
                                             <%= review.content %>
                                         </p>

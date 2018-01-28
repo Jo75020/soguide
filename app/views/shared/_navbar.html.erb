@@ -14,18 +14,7 @@
       <%= link_to "Blog", "#", class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Contact", "#", class: "navbar-wagon-item navbar-wagon-link" %>
     <% if user_signed_in? %>
-
       <!-- Links when logged in -->
-
-      <%= link_to "Messages", conversations_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <% messages = Message.where(user_id: current_user.id) %>
-      <% if messages.unread_by(current_user) == [] %>
-
-        <% else %>
-      <div class="dot-message">
-      <span class="number-message"><%= @messages.unread_by(current_user).length %><span>
-      </div>
-      <% end %>
       <span class=navbar-wagon-item navbar-wagon-link"> <%= current_user.first_name %> <%= current_user.last_name %></span>
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
@@ -33,11 +22,6 @@
           <% avatar_url = current_user.facebook_picture_url || current_user.photo %>
           <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <li>
-              <%= link_to conversations_path do %>
-                <i class="fa fa-comment"></i>  <%= t(".profile", default: "Messagerie") %>
-              <% end %>
-            </li>
             <li>
               <%= link_to countries_path do %>
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Trouver un guide") %>
@@ -67,11 +51,6 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li>
-          <%= link_to conversations_path do %>
-            <i class="fa fa-comment"></i>  <%= t(".profile", default: "Messagerie") %>
-          <% end %>
-        </li>
         <li>
           <%= link_to countries_path do %>
             <i class="fa fa-user"></i> <%= t(".profile", default: "Trouver un guide") %>
